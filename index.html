@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs2Course - Turn Your Job Into AI Efficiency Strategies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #faf5ff 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .auth-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .usage-info {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .auth-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .auth-btn:hover {
+            background: #2563eb;
+        }
+        
+        .auth-btn.secondary {
+            background: transparent;
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+        }
+        
+        .auth-btn.secondary:hover {
+            background: #eff6ff;
+        }
+        
+        main {
+            padding: 2rem 0;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .hero .highlight {
+            color: #3b82f6;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        
+        .required {
+            color: #ef4444;
+        }
+        
+        select, input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        select:focus, input:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .duties-field {
+            position: relative;
+        }
+        
+        .duties-field textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .char-counter {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.75rem;
+            font-size: 0.75rem;
+            color: #6b7280;
+            background: white;
+            padding: 0.25rem;
+        }
+        
+        .analyze-btn {
+            width: 100%;
+            background: #3b82f6;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .analyze-btn:hover {
+            background: #2563eb;
+        }
+        
+        .analyze-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+        }
+        
+        .feature-icon.level1 { background: #dbeafe; }
+        .feature-icon.level2 { background: #fef3c7; }
+        .feature-icon.level3 { background: #dcfce7; }
+        
+        .feature-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .results {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .results-header h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-btn {
+            margin-top: 1rem;
+            color: #3b82f6;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .strategy-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .strategy-header {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .strategy-content {
+            padding: 1.5rem;
+        }
+        
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        
+        .level-card {
+            border-radius: 0.5rem;
+            padding: 1rem;
+            border: 2px solid;
+            position: relative;
+        }
+        
+        .level-card.level1 {
+            border-color: #bfdbfe;
+            background: #eff6ff;
+        }
+        
+        .level-card.level2 {
+            border-color: #fed7aa;
+            background: #fffbeb;
+        }
+        
+        .level-card.level3 {
+            border-color: #bbf7d0;
+            background: #f0fdf4;
+        }
+        
+        .level-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .level-header h4 {
+            font-weight: 600;
+        }
+        
+        .gain-badge {
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        
+        .time-savings {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .quick-start-btn {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid #3b82f6;
+            color: #3b82f6;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 0.75rem;
+            transition: all 0.2s;
+            width: 100%;
+        }
+        
+        .quick-start-btn:hover {
+            background: rgba(59, 130, 246, 0.2);
+        }
+        
+        .quick-start-content {
+            margin-top: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 0.375rem;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            border-left: 3px solid #3b82f6;
+            display: none;
+        }
+        
+        .monetization-cta {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 1rem;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .monetization-cta h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .monetization-cta p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: #3b82f6;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-btn:hover {
+            background: #f3f4f6;
+            transform: translateY(-2px);
+        }
+        
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .cta-btn.secondary:hover {
+            background: white;
+            color: #3b82f6;
+        }
+        
+        .community-section {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 3rem;
+        }
+        
+        .community-section h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .community-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .submit-btn {
+            background: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .submit-btn:hover {
+            background: #059669;
+        }
+        
+        .auth-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .auth-modal.show {
+            display: flex;
+        }
+        
+        .auth-content {
+            background: white;
+            border-radius: 1rem;
+            max-width: 400px;
+            width: 90%;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        
+        .modal-close:hover {
+            color: #374151;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .modal-subtitle {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .auth-toggle {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .auth-toggle a {
+            color: #3b82f6;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .auth-toggle a:hover {
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .success-message {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .spinner {
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .levels-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Jobs2Course</div>
+                <div class="auth-controls">
+                    <div class="usage-info" id="usage-info">
+                        <span id="usage-count">5 free analyses remaining</span>
+                    </div>
+                    <div id="auth-buttons">
+                        <button class="auth-btn" id="login-btn" onclick="showAuthModal('login')">Sign In</button>
+                        <button class="auth-btn secondary" id="signup-btn" onclick="showAuthModal('signup')">Sign Up</button>
+                    </div>
+                    <div id="user-menu" class="hidden">
+                        <span id="user-email"></span>
+                        <button class="auth-btn" id="logout-btn" onclick="handleLogout()">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Main Form Section -->
+        <div id="form-section">
+            <div class="hero">
+                <h1>Turn Your Job Into <span class="highlight">AI-Powered Efficiency</span></h1>
+                <p>Describe what you actually do at work, and get personalized strategies to boost your productivity by 20-70%. Discover how to turn your expertise into a profitable course.</p>
+            </div>
+
+            <div class="form-container">
+                <form id="job-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="industry">Industry <span class="required">*</span></label>
+                            <select id="industry" required>
+                                <option value="">Select your industry</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="education">Education</option>
+                                <option value="business">Business & Marketing</option>
+                                <option value="technology">Technology</option>
+                                <option value="finance">Finance & Banking</option>
+                                <option value="retail">Retail & Sales</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title <span class="required">*</span></label>
+                            <input type="text" id="jobTitle" required placeholder="e.g., Registered Nurse, Sales Manager, Teacher">
+                        </div>
+                    </div>
+
+                    <div class="form-group duties-field">
+                        <label for="jobDuties">What do you actually do in your job? <span class="required">*</span></label>
+                        <textarea 
+                            id="jobDuties" 
+                            required 
+                            placeholder="Describe your main responsibilities, daily tasks, and workflows. Be specific about what takes most of your time. For example: 'I spend 3 hours daily documenting patient care, 2 hours in meetings with families, 1 hour coordinating with doctors...'"
+                            maxlength="2000"
+                        ></textarea>
+                        <div class="char-counter">
+                            <span id="char-count">0</span>/2000 characters
+                        </div>
+                    </div>
+
+                    <button type="submit" class="analyze-btn" id="analyze-btn">
+                        <span>Analyze My Job & Get Efficiency Strategies</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon level1">⚡</div>
+                    <h3>Level 1: Quick Wins</h3>
+                    <p>Simple AI tools you can implement in 30 minutes for 20-30% efficiency gains</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon level2">🎯</div>
+                    <h3>Level 2: Smart Automation</h3>
+                    <p>Connected systems requiring 2-4 hours setup for 40-50% efficiency gains</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon level3">📈</div>
+                    <h3>Level 3: AI Systems</h3>
+                    <p>Advanced automation worth 1-2 weeks investment for 60-70%+ gains</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="hidden">
+            <div class="results">
+                <div class="results-header">
+                    <h2 id="results-title">Your AI Efficiency Analysis</h2>
+                    <p id="results-subtitle">Personalized strategies based on your job duties</p>
+                    <button class="back-btn" id="back-btn">← Analyze Another Job</button>
+                </div>
+
+                <div id="strategies-container">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+
+                <div class="monetization-cta">
+                    <h3 id="monetization-title">You've unlocked efficiency improvements!</h3>
+                    <p id="monetization-text">Imagine turning these strategies into modules of a $197 course. Your expertise combined with these AI workflows could help thousands of professionals in your field.</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-btn" id="waitlist-btn">Join Course Creator Waitlist</a>
+                        <a href="#" class="cta-btn secondary" id="purchase-btn">View Live Course Options</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Submission Section -->
+        <div class="community-section">
+            <h3>Submit a New Job Improvement</h3>
+            <p style="text-align: center; margin-bottom: 1.5rem; color: #6b7280;">
+                Share your own efficiency tip to help others in your field
+            </p>
+            <div class="community-form">
+                <form id="community-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your job title" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Describe your efficiency improvement (tools, process, time saved)" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email (optional)" style="margin-bottom: 0.5rem;">
+                        <button type="submit" class="submit-btn">Submit for Review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-content">
+            <button class="modal-close" onclick="hideAuthModal()">&times;</button>
+            <div id="auth-form-container">
+                <div class="modal-title" id="modal-title">Get Unlimited Access</div>
+                <div class="modal-subtitle" id="modal-subtitle">Sign up for unlimited job analyses and advanced features</div>
+                <div id="auth-messages"></div>
+                <form id="auth-form" class="auth-form">
+                    <input type="email" id="auth-email" placeholder="Your email address" required>
+                    <input type="password" id="auth-password" placeholder="Password (min 6 characters)" required minlength="6">
+                    <button type="submit" class="auth-btn" id="auth-submit" style="width: 100%;">
+                        Continue Free Forever
+                    </button>
+                </form>
+                <div class="auth-toggle" id="auth-toggle">
+                    Already have an account? <a onclick="toggleAuthMode()">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="job-library.js"></script>
+    
+    <script>
+        // Configuration
+        const APP_CONFIG = {
+            supabase: {
+                url: 'https://your-project.supabase.co',
+                anonKey: 'your-anon-key-here'
+            },
+            usage: {
+                freeAnalyses: 5,
+                resetPeriod: 24 * 60 * 60 * 1000
+            }
+        };
+
+        // Initialize Supabase client
+        let supabase = null;
+        try {
+            if (typeof window.supabase !== 'undefined' && APP_CONFIG.supabase.url !== 'https://your-project.supabase.co') {
+                supabase = window.supabase.createClient(APP_CONFIG.supabase.url, APP_CONFIG.supabase.anonKey);
+            }
+        } catch (error) {
+            console.log('Supabase not configured, running in demo mode');
+        }
+
+        // Application State
+        let currentUser = null;
+        let usageCount = 5;
+        let currentAuthMode = 'signup';
+
+        // DOM Elements
+        const formSection = document.getElementById('form-section');
+        const resultsSection = document.getElementById('results-section');
+        const jobForm = document.getElementById('job-form');
+        const analyzeBtn = document.getElementById('analyze-btn');
+        const backBtn = document.getElementById('back-btn');
+        const authModal = document.getElementById('auth-modal');
+        const authForm = document.getElementById('auth-form');
+        const usageInfo = document.getElementById('usage-info');
+        const charCount = document.getElementById('char-count');
+        const jobDuties = document.getElementById('jobDuties');
+        const authButtons = document.getElementById('auth-buttons');
+        const userMenu = document.getElementById('user-menu');
+
+        // Initialize Application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+            setupEventListeners();
+        });
+
+        async function initializeApp() {
+            await loadUserSession();
+            updateUI();
+            
+            // Set up auth state listener if Supabase is available
+            if (supabase) {
+                supabase.auth.onAuthStateChange((event, session) => {
+                    console.log('Auth event:', event);
+                    if (session?.user) {
+                        handleAuthSuccess(session.user);
+                    } else {
+                        handleAuthLogout();
+                    }
+                });
+            }
+        }
+
+        async function loadUserSession() {
+            // Try to get current session from Supabase
+            if (supabase) {
+                try {
+                    const { data: { session } } = await supabase.auth.getSession();
+                    if (session?.user) {
+                        currentUser = session.user;
+                        usageCount = 999; // Unlimited for authenticated users
+                        return;
+                    }
+                } catch (error) {
+                    console.log('Session check failed:', error);
+                }
+            }
+            
+            // Fallback to localStorage
+            const savedUser = localStorage.getItem('jobs2course_user');
+            const savedUsage = localStorage.getItem('jobs2course_usage');
+            
+            if (savedUser) {
+                try {
+                    currentUser = JSON.parse(savedUser);
+                    usageCount = 999;
+                } catch (error) {
+                    localStorage.removeItem('jobs2course_user');
+                }
+            } else if (savedUsage) {
+                usageCount = Math.max(0, parseInt(savedUsage));
+            }
+        }
+
+        function setupEventListeners() {
+            // Character counter
+            jobDuties.addEventListener('input', function() {
+                charCount.textContent = this.value.length;
+            });
+
+            // Form submission
+            jobForm.addEventListener('submit', handleJobAnalysis);
+            
+            // Navigation
+            backBtn.addEventListener('click', showFormSection);
+            
+            // Auth form
+            authForm.addEventListener('submit', handleAuth);
+            
+            // Community form
+            document.getElementById('community-form').addEventListener('submit', handleCommunitySubmission);
+            
+            // Modal close
+            authModal.addEventListener('click', function(e) {
+                if (e.target === authModal) hideAuthModal();
+            });
+        }
+
+        function updateUI() {
+            updateUsageDisplay();
+            updateAuthControls();
+        }
+
+        function updateUsageDisplay() {
+            const usageElement = document.getElementById('usage-count');
+            if (currentUser) {
+                usageElement.textContent = 'Unlimited analyses';
+            } else {
+                usageElement.textContent = `${usageCount} free analyses remaining`;
+            }
+        }
+
+        function updateAuthControls() {
+            if (currentUser) {
+                authButtons.classList.add('hidden');
+                userMenu.classList.remove('hidden');
+                document.getElementById('user-email').textContent = currentUser.email;
+            } else {
+                authButtons.classList.remove('hidden');
+                userMenu.classList.add('hidden');
+            }
+        }
+
+        // Auth Modal Functions
+        function showAuthModal(mode = 'signup') {
+            currentAuthMode = mode;
+            updateAuthModal();
+            authModal.classList.add('show');
+            document.getElementById('auth-email').focus();
+        }
+
+        function hideAuthModal() {
+            authModal.classList.remove('show');
+            clearAuthMessages();
+            document.getElementById('auth-form').reset();
+        }
+
+        function updateAuthModal() {
+            const title = document.getElementById('modal-title');
+            const subtitle = document.getElementById('modal-subtitle');
+            const submit = document.getElementById('auth-submit');
+            const toggle = document.getElementById('auth-toggle');
+
+            if (currentAuthMode === 'signup') {
+                title.textContent = 'Get Unlimited Access';
+                subtitle.textContent = 'Sign up for unlimited job analyses and advanced features';
+                submit.textContent = 'Continue Free Forever';
+                toggle.innerHTML = 'Already have an account? <a onclick="toggleAuthMode()">Sign in</a>';
+            } else {
+                title.textContent = 'Welcome Back';
+                subtitle.textContent = 'Sign in to access your unlimited analyses';
+                submit.textContent = 'Sign In';
+                toggle.innerHTML = 'Need an account? <a onclick="toggleAuthMode()">Sign up</a>';
+            }
+        }
+
+        function toggleAuthMode() {
+            currentAuthMode = currentAuthMode === 'signup' ? 'login' : 'signup';
+            updateAuthModal();
+            clearAuthMessages();
+        }
+
+        // Authentication Functions
+        async function handleAuth(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('auth-email').value.trim();
+            const password = document.getElementById('auth-password').value;
+
+            if (!email || !password) {
+                showAuthMessage('Please fill in all fields', 'error');
+                return;
+            }
+
+            const submitBtn = document.getElementById('auth-submit');
+            const originalText = submitBtn.textContent;
+            
+            try {
+                submitBtn.innerHTML = '<div class="spinner"></div>';
+                submitBtn.disabled = true;
+
+                let result;
+                if (supabase) {
+                    if (currentAuthMode === 'signup') {
+                        result = await handleSupabaseSignup(email, password);
+                    } else {
+                        result = await handleSupabaseLogin(email, password);
+                    }
+                } else {
+                    // Demo mode - simulate auth
+                    result = await simulateAuth(email, password);
+                }
+
+                if (result.success) {
+                    if (result.needsVerification) {
+                        showAuthMessage('Please check your email and click the confirmation link', 'success');
+                    } else {
+                        hideAuthModal();
+                        showAuthMessage('Success! You now have unlimited access.', 'success');
+                    }
+                } else {
+                    showAuthMessage(result.error, 'error');
+                }
+
+            } catch (error) {
+                console.error('Auth error:', error);
+                showAuthMessage('Authentication failed. Please try again.', 'error');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        async function handleSupabaseSignup(email, password) {
+            try {
+                const { data, error } = await supabase.auth.signUp({
+                    email,
+                    password,
+                    options: {
+                        data: {
+                            signup_source: 'jobs2course'
+                        }
+                    }
+                });
+
+                if (error) throw error;
+
+                return {
+                    success: true,
+                    user: data.user,
+                    needsVerification: !data.session
+                };
+
+            } catch (error) {
+                return {
+                    success: false,
+                    error: getReadableError(error.message)
+                };
+            }
+        }
+
+        async function handleSupabaseLogin(email, password) {
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email,
+                    password
+                });
+
+                if (error) throw error;
+
+                return {
+                    success: true,
+                    user: data.user
+                };
+
+            } catch (error) {
+                return {
+                    success: false,
+                    error: getReadableError(error.message)
+                };
+            }
+        }
+
+        async function simulateAuth(email, password) {
+            // Demo mode - simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            const user = {
+                id: 'demo-' + Date.now(),
+                email: email,
+                created_at: new Date().toISOString()
+            };
+
+            handleAuthSuccess(user);
+            
+            return {
+                success: true,
+                user: user
+            };
+        }
+
+        function handleAuthSuccess(user) {
+            console.log('User authenticated:', user.email);
+            
+            currentUser = user;
+            usageCount = 999;
+            
+            // Store user data
+            localStorage.setItem('jobs2course_user', JSON.stringify({
+                id: user.id,
+                email: user.email,
+                authenticated_at: Date.now()
+            }));
+            
+            // Clear usage restrictions
+            localStorage.removeItem('jobs2course_usage');
+            
+            updateUI();
+        }
+
+        async function handleLogout() {
+            try {
+                if (supabase) {
+                    await supabase.auth.signOut();
+                }
+                handleAuthLogout();
+            } catch (error) {
+                console.error('Logout error:', error);
+                // Still proceed with local logout
+                handleAuthLogout();
+            }
+        }
+
+        function handleAuthLogout() {
+            console.log('User logged out');
+            
+            currentUser = null;
+            usageCount = 5;
+            
+            // Reset to free tier
+            localStorage.removeItem('jobs2course_user');
+            localStorage.setItem('jobs2course_usage', '5');
+            
+            updateUI();
+        }
+
+        // Job Analysis Functions
+        async function handleJobAnalysis(e) {
+            e.preventDefault();
+            
+            const industry = document.getElementById('industry').value;
+            const jobTitle = document.getElementById('jobTitle').value.trim();
+            const duties = document.getElementById('jobDuties').value.trim();
+
+            if (!industry || !jobTitle || !duties) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Check usage limits
+            if (!currentUser && usageCount <= 0) {
+                showAuthModal('signup');
+                return;
+            }
+
+            showAnalysisLoading();
+
+            try {
+                const analysis = await analyzeJobDuties(industry, jobTitle, duties);
+                
+                if (!currentUser) {
+                    usageCount--;
+                    localStorage.setItem('jobs2course_usage', usageCount.toString());
+                    updateUsageDisplay();
+                }
+
+                displayResults(analysis, jobTitle, industry);
+                showResultsSection();
+                
+            } catch (error) {
+                console.error('Analysis error:', error);
+                alert('Analysis failed. Please try again.');
+            } finally {
+                hideAnalysisLoading();
+            }
+        }
+
+        async function analyzeJobDuties(industry, jobTitle, duties) {
+            // Simulate analysis delay
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Map form industry to job library key
+            const libraryIndustry = ConfigUtils.mapIndustryToLibrary(industry);
+            
+            // Try to find job in library first
+            let strategies = [];
+            
+            if (typeof jobLibrary !== 'undefined') {
+                const jobData = ConfigUtils.findJobStrategies(libraryIndustry, jobTitle, jobLibrary);
+                
+                if (jobData) {
+                    strategies = ConfigUtils.extractStrategies(jobData);
+                    ConfigUtils.log(`Found ${strategies.length} strategies in library for ${jobTitle}`, 'info');
+                } else {
+                    ConfigUtils.log(`No strategies found in library for ${jobTitle}, generating fallback`, 'info');
+                }
+            }
+            
+            // If no library matches, generate generic strategies
+            if (strategies.length === 0) {
+                const tasks = extractTasksFromDuties(duties);
+                
+                strategies = tasks.map(task => ({
+                    task: task.name,
+                    currentMethod: task.currentMethod,
+                    level1: {
+                        description: `AI assistant for ${task.name.toLowerCase()}`,
+                        setupTime: '15-30 minutes',
+                        weeklySavings: '2-4 hours',
+                        gain: Math.floor(Math.random() * 15) + 15,
+                        quickStart: `1. Choose an AI tool like ChatGPT or Claude\n2. Create templates for your common ${task.name.toLowerCase()} tasks\n3. Practice using the tool with real examples\n4. Set up quick access shortcuts\n5. Track your time savings`
+                    },
+                    level2: {
+                        description: `Automated workflow for ${task.name.toLowerCase()}`,
+                        setupTime: '2-4 hours',
+                        weeklySavings: '6-8 hours',
+                        gain: Math.floor(Math.random() * 15) + 35,
+                        quickStart: `1. Research automation tools like Zapier or Make.com\n2. Map your current ${task.name.toLowerCase()} process\n3. Connect your existing apps and tools\n4. Create automated workflows\n5. Test and refine the automation\n6. Train team members on new process`
+                    },
+                    level3: {
+                        description: `Complete AI system for ${task.name.toLowerCase()}`,
+                        setupTime: '1-2 weeks',
+                        weeklySavings: '10-15 hours',
+                        gain: Math.floor(Math.random() * 15) + 55,
+                        quickStart: `1. Design comprehensive AI-powered system\n2. Integrate multiple tools and platforms\n3. Create custom prompts and workflows\n4. Set up data connections and APIs\n5. Build reporting and monitoring\n6. Train entire team on new system\n7. Continuously optimize based based on results`
+                    }
+                }));
+            }
+
+            return {
+                industry: libraryIndustry,
+                jobTitle,
+                duties,
+                strategies
+            };
+        }
+
+        function extractTasksFromDuties(duties) {
+            const commonTasks = [
+                { name: 'Documentation & Record Keeping', currentMethod: 'Manual data entry and filing systems' },
+                { name: 'Communication & Follow-ups', currentMethod: 'Email chains and phone calls' },
+                { name: 'Analysis & Reporting', currentMethod: 'Manual spreadsheet analysis' },
+                { name: 'Planning & Scheduling', currentMethod: 'Manual calendar coordination' },
+                { name: 'Data Processing & Entry', currentMethod: 'Manual typing and copying' },
+                { name: 'Customer Service & Support', currentMethod: 'Individual response handling' }
+            ];
+
+            // Return 3-4 relevant tasks
+            const shuffled = commonTasks.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 3 + Math.floor(Math.random() * 2));
+        }
+
+        function displayResults(analysis, jobTitle, industry) {
+            document.getElementById('results-title').textContent = `AI Efficiency Analysis for ${jobTitle}`;
+            document.getElementById('results-subtitle').textContent = `Personalized strategies based on your ${industry} workflows`;
+            
+            const container = document.getElementById('strategies-container');
+            container.innerHTML = analysis.strategies.map(strategy => `
+                <div class="strategy-card">
+                    <div class="strategy-header">
+                        <h3>${strategy.task}</h3>
+                        <p style="color: #6b7280; margin-top: 0.5rem;">Current: ${strategy.currentMethod}</p>
+                    </div>
+                    <div class="strategy-content">
+                        <div class="levels-grid">
+                            ${renderLevelCards(strategy)}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Update monetization CTA
+            const totalStrategies = analysis.strategies.length * 3;
+            document.getElementById('monetization-title').textContent = 
+                `You've unlocked ${totalStrategies} efficiency improvements!`;
+        }
+
+        function renderLevelCards(strategy) {
+            return [1, 2, 3].map(level => {
+                const levelData = strategy[`level${level}`];
+                const levelIcon = level === 1 ? '⚡' : level === 2 ? '🎯' : '📈';
+                
+                return `
+                    <div class="level-card level${level}">
+                        <div class="level-header">
+                            <span style="font-size: 1.25rem;">${levelIcon}</span>
+                            <h4>Level ${level}</h4>
+                            <span class="gain-badge">+${levelData.gain}%</span>
+                        </div>
+                        <p style="font-size: 0.875rem; margin-bottom: 0.5rem;">${levelData.description}</p>
+                        <div class="time-savings">
+                            Setup: ${levelData.setupTime} | Saves: ${levelData.weeklySavings}/week
+                        </div>
+                        <button class="quick-start-btn" onclick="toggleQuickStart(this)">
+                            Quick Start Guide ▼
+                        </button>
+                        <div class="quick-start-content">
+                            ${formatQuickStart(levelData.quickStart)}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function formatQuickStart(text) {
+            return text.split('\n').map(line => {
+                if (line.match(/^\d+\./)) {
+                    return `<strong>${line}</strong>`;
+                }
+                return line;
+            }).join('<br>');
+        }
+
+        function toggleQuickStart(button) {
+            const content = button.nextElementSibling;
+            const isVisible = content.style.display !== 'none';
+            
+            if (isVisible) {
+                content.style.display = 'none';
+                button.innerHTML = 'Quick Start Guide ▼';
+            } else {
+                content.style.display = 'block';
+                button.innerHTML = 'Quick Start Guide ▲';
+            }
+        }
+
+        // UI Helper Functions
+        function showAnalysisLoading() {
+            analyzeBtn.innerHTML = '<div class="spinner"></div> <span>Analyzing your job duties...</span>';
+            analyzeBtn.disabled = true;
+        }
+
+        function hideAnalysisLoading() {
+            analyzeBtn.innerHTML = '<span>Analyze My Job & Get Efficiency Strategies</span>';
+            analyzeBtn.disabled = false;
+        }
+
+        function showFormSection() {
+            resultsSection.classList.add('hidden');
+            formSection.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showResultsSection() {
+            formSection.classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showAuthMessage(message, type) {
+            const messagesContainer = document.getElementById('auth-messages');
+            messagesContainer.innerHTML = `<div class="${type}-message">${message}</div>`;
+        }
+
+        function clearAuthMessages() {
+            document.getElementById('auth-messages').innerHTML = '';
+        }
+
+        // Community Form Handler
+        async function handleCommunitySubmission(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            try {
+                const submitBtn = form.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+                
+                // Simulate form submission
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                alert('Thank you for your submission! It will be reviewed soon.');
+                form.reset();
+                
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Submission failed. Please try again.');
+            }
+        }
+
+        // Error handling helper
+        function getReadableError(errorMessage) {
+            const errorMap = {
+                'Invalid login credentials': 'Invalid email or password',
+                'Email not confirmed': 'Please check your email and click the confirmation link',
+                'User already registered': 'An account with this email already exists',
+                'Password should be at least 6 characters': 'Password must be at least 6 characters',
+                'Unable to validate email address': 'Please enter a valid email address'
+            };
+            
+            return errorMap[errorMessage] || 'Authentication failed. Please try again.';
+        }
+
+        // Make functions globally available for onclick handlers
+        window.showAuthModal = showAuthModal;
+        window.hideAuthModal = hideAuthModal;
+        window.toggleAuthMode = toggleAuthMode;
+        window.handleLogout = handleLogout;
+        window.toggleQuickStart = toggleQuickStart;
+    </script>
+</body>
+</html>
