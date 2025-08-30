@@ -242,4 +242,5 @@ const jobLibrary = {
 };
 
 // Export for use in the application
-export default jobLibrary;
+// Make jobLibrary available globally
+window.jobLibrary = jobLibrary;
