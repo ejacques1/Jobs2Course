@@ -282,32 +282,12 @@
             padding: 1.5rem;
         }
         
-        .levels-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-        
         .level-card {
             border-radius: 0.5rem;
-            padding: 1rem;
-            border: 2px solid;
-            position: relative;
-        }
-        
-        .level-card.level1 {
-            border-color: #bfdbfe;
+            padding: 1.5rem;
+            border: 2px solid #bfdbfe;
             background: #eff6ff;
-        }
-        
-        .level-card.level2 {
-            border-color: #fed7aa;
-            background: #fffbeb;
-        }
-        
-        .level-card.level3 {
-            border-color: #bbf7d0;
-            background: #f0fdf4;
+            margin-bottom: 1rem;
         }
         
         .level-header {
@@ -364,6 +344,47 @@
             line-height: 1.4;
             border-left: 3px solid #3b82f6;
             display: none;
+        }
+        
+        .submit-link {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #f0f9ff;
+            border-radius: 0.5rem;
+            border-left: 4px solid #3b82f6;
+            font-size: 0.875rem;
+            color: #1e40af;
+        }
+        
+        .submit-link a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .submit-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .no-match-message {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .no-match-message h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+        
+        .no-match-message p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
         }
         
         .monetization-cta {
@@ -592,10 +613,6 @@
                 flex-direction: column;
                 align-items: center;
             }
-            
-            .levels-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -673,19 +690,16 @@
 
             <div class="features">
                 <div class="feature-card">
+                    <div style="font-size: 2rem; font-weight: bold; color: #3b82f6; margin-bottom: 1rem;">JOBS</div>
                     <div class="feature-icon level1">⚡</div>
                     <h3>Level 1: Quick Wins</h3>
                     <p>Simple AI tools you can implement in 30 minutes for 20-30% efficiency gains</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon level2">🎯</div>
-                    <h3>Level 2: Smart Automation</h3>
-                    <p>Connected systems requiring 2-4 hours setup for 40-50% efficiency gains</p>
-                </div>
-                <div class="feature-card">
+                    <div style="font-size: 2rem; font-weight: bold; color: #3b82f6; margin-bottom: 1rem;">COURSES</div>
                     <div class="feature-icon level3">📈</div>
-                    <h3>Level 3: AI Systems</h3>
-                    <p>Advanced automation worth 1-2 weeks investment for 60-70%+ gains</p>
+                    <h3>Monetize Your Expertise</h3>
+                    <p>Turn your job efficiency discoveries into teachable online courses</p>
                 </div>
             </div>
         </div>
@@ -707,34 +721,13 @@
                     <h3 id="monetization-title">You've unlocked efficiency improvements!</h3>
                     <p id="monetization-text">Imagine turning these strategies into modules of a $197 course. Your expertise combined with these AI workflows could help thousands of professionals in your field.</p>
                     <div class="cta-buttons">
-                        <a href="#" class="cta-btn" id="waitlist-btn">Join Course Creator Waitlist</a>
-                        <a href="#" class="cta-btn secondary" id="purchase-btn">View Live Course Options</a>
+                        <a href="https://www.erinjacques.com/jobsimprovements" target="_blank" class="cta-btn" id="waitlist-btn">Join Course Creator Waitlist</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Community Submission Section -->
-        <div class="community-section">
-            <h3>Submit a New Job Improvement</h3>
-            <p style="text-align: center; margin-bottom: 1.5rem; color: #6b7280;">
-                Share your own efficiency tip to help others in your field
-            </p>
-            <div class="community-form">
-                <form id="community-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your job title" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Describe your efficiency improvement (tools, process, time saved)" rows="4" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your email (optional)" style="margin-bottom: 0.5rem;">
-                        <button type="submit" class="submit-btn">Submit for Review</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+
     </main>
 
     <!-- Authentication Modal -->
@@ -783,6 +776,55 @@
             usage: {
                 freeAnalyses: 5,
                 resetPeriod: 24 * 60 * 60 * 1000
+            }
+        };
+
+        // Task Categories with Keyword Arrays (280+ keywords total)
+        const taskCategories = {
+            'Documentation & Report Writing': {
+                keywords: ['report', 'document', 'write', 'record', 'log', 'note', 'summary', 'memo', 'brief', 'paper', 'documentation', 'filing', 'paperwork', 'forms', 'chart', 'journal', 'transcript', 'minutes', 'proposal', 'presentation', 'draft', 'documentation', 'writing', 'documenting', 'reports', 'charts', 'charting', 'notes', 'recording', 'logging']
+            },
+            'Data Analysis & Processing': {
+                keywords: ['data', 'analyze', 'analysis', 'spreadsheet', 'excel', 'numbers', 'calculate', 'metrics', 'statistics', 'stats', 'kpi', 'dashboard', 'chart', 'graph', 'pivot', 'formula', 'database', 'sql', 'query', 'trend', 'forecast', 'budget', 'financial', 'analytics', 'processing', 'calculations', 'formulas', 'pivot tables', 'visualizations']
+            },
+            'Communication & Email Management': {
+                keywords: ['email', 'communicate', 'call', 'phone', 'meeting', 'respond', 'follow up', 'contact', 'correspondence', 'message', 'reply', 'outreach', 'discussion', 'conference', 'zoom', 'teams', 'slack', 'chat', 'coordinate', 'liaise', 'emails', 'messaging', 'communications', 'calling', 'meetings', 'responses']
+            },
+            'Customer Service & Support': {
+                keywords: ['customer', 'client', 'support', 'help', 'service', 'assist', 'resolve', 'issue', 'problem', 'complaint', 'inquiry', 'ticket', 'case', 'troubleshoot', 'satisfaction', 'feedback', 'escalation', 'follow-up', 'retention', 'relationship', 'customers', 'clients', 'supporting', 'helping', 'servicing', 'assisting']
+            },
+            'Project Management & Planning': {
+                keywords: ['project', 'plan', 'planning', 'manage', 'coordinate', 'schedule', 'timeline', 'deadline', 'milestone', 'task', 'organize', 'workflow', 'process', 'oversight', 'tracking', 'progress', 'status', 'resource', 'allocation', 'gantt', 'projects', 'managing', 'coordination', 'scheduling', 'organizing', 'planning']
+            },
+            'Training & Education': {
+                keywords: ['train', 'training', 'teach', 'educate', 'instruct', 'mentor', 'coach', 'workshop', 'seminar', 'presentation', 'curriculum', 'lesson', 'course', 'onboard', 'orientation', 'development', 'skill', 'learning', 'knowledge', 'certification', 'teaching', 'educating', 'instructing', 'mentoring', 'coaching']
+            },
+            'Quality Assurance & Testing': {
+                keywords: ['quality', 'test', 'testing', 'check', 'review', 'audit', 'inspect', 'verify', 'validate', 'compliance', 'standard', 'procedure', 'guideline', 'assurance', 'control', 'improvement', 'defect', 'bug', 'error', 'correction', 'qa', 'qc', 'testing', 'reviewing', 'auditing', 'inspecting', 'checking']
+            },
+            'Financial Management & Accounting': {
+                keywords: ['finance', 'financial', 'accounting', 'budget', 'expense', 'revenue', 'cost', 'invoice', 'billing', 'payment', 'reconcile', 'audit', 'tax', 'payroll', 'bookkeeping', 'ledger', 'journal', 'balance', 'profit', 'loss', 'cash flow', 'finances', 'budgeting', 'invoicing', 'accounting', 'reconciliation']
+            },
+            'Inventory & Supply Chain': {
+                keywords: ['inventory', 'stock', 'supply', 'procurement', 'purchase', 'vendor', 'supplier', 'warehouse', 'shipping', 'receiving', 'logistics', 'distribution', 'order', 'fulfillment', 'tracking', 'management', 'chain', 'materials', 'goods', 'supplies', 'ordering', 'purchasing', 'procurement', 'stocking', 'warehousing']
+            },
+            'Research & Development': {
+                keywords: ['research', 'development', 'innovation', 'experiment', 'prototype', 'design', 'create', 'investigate', 'study', 'analysis', 'testing', 'evaluation', 'exploration', 'discovery', 'improvement', 'solution', 'technology', 'methodology', 'approach', 'findings', 'researching', 'developing', 'innovating', 'experimenting', 'designing']
+            },
+            'Marketing & Social Media': {
+                keywords: ['marketing', 'promote', 'campaign', 'social media', 'content', 'brand', 'advertising', 'seo', 'digital', 'online', 'website', 'blog', 'newsletter', 'email marketing', 'analytics', 'engagement', 'audience', 'lead', 'conversion', 'roi', 'promoting', 'campaigns', 'branding', 'advertising', 'content creation']
+            },
+            'Lead Generation & Prospecting': {
+                keywords: ['lead', 'prospect', 'prospecting', 'outreach', 'cold call', 'cold email', 'sales funnel', 'pipeline', 'qualify', 'lead generation', 'business development', 'networking', 'referral', 'crm', 'contact', 'reach out', 'follow up', 'nurture', 'conversion', 'leads', 'prospects', 'generating', 'qualifying', 'outreaching']
+            },
+            'Talent Acquisition': {
+                keywords: ['recruit', 'recruiting', 'hiring', 'talent', 'candidate', 'interview', 'resume', 'cv', 'job posting', 'sourcing', 'headhunt', 'talent acquisition', 'hr', 'human resources', 'screening', 'onsite', 'reference check', 'offer', 'negotiate', 'recruitment', 'candidates', 'interviewing', 'sourcing', 'screening']
+            },
+            'Onboarding': {
+                keywords: ['onboard', 'onboarding', 'orientation', 'new hire', 'training', 'induction', 'welcome', 'setup', 'introduction', 'first day', 'new employee', 'integration', 'acclimate', 'familiarize', 'new hires', 'orientations', 'introductions', 'welcoming', 'integrating']
+            },
+            'Customer/User Insights': {
+                keywords: ['insight', 'feedback', 'survey', 'analytics', 'user research', 'customer research', 'interview', 'focus group', 'usability', 'behavior', 'satisfaction', 'nps', 'testimonial', 'review', 'observation', 'journey map', 'persona', 'segment', 'insights', 'researching', 'surveying', 'interviewing', 'analyzing']
             }
         };
 
@@ -883,9 +925,6 @@
             
             // Auth form
             authForm.addEventListener('submit', handleAuth);
-            
-            // Community form
-            document.getElementById('community-form').addEventListener('submit', handleCommunitySubmission);
             
             // Modal close
             authModal.addEventListener('click', function(e) {
@@ -1121,6 +1160,46 @@
             updateUI();
         }
 
+        // New Keyword-Based Task Extraction
+        function extractTasksFromDuties(duties) {
+            if (!duties || duties.trim().length === 0) {
+                return [];
+            }
+
+            const inputText = duties.toLowerCase();
+            const categoryScores = {};
+
+            // Score each category based on keyword matches
+            for (const [categoryName, categoryData] of Object.entries(taskCategories)) {
+                let score = 0;
+                const keywords = categoryData.keywords;
+                
+                for (const keyword of keywords) {
+                    const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi');
+                    const matches = (inputText.match(regex) || []).length;
+                    score += matches;
+                }
+                
+                if (score > 0) {
+                    categoryScores[categoryName] = score;
+                }
+            }
+
+            // Sort categories by score and return top matches
+            const sortedCategories = Object.entries(categoryScores)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 5) // Return top 5 matches
+                .map(([categoryName, score]) => ({
+                    name: categoryName,
+                    score: score,
+                    currentMethod: 'Current manual processes and workflows'
+                }));
+
+            console.log('Keyword matching results:', sortedCategories);
+            
+            return sortedCategories.length > 0 ? sortedCategories : [];
+        }
+
         // Job Analysis Functions
         async function handleJobAnalysis(e) {
             e.preventDefault();
@@ -1166,75 +1245,64 @@
             // Simulate analysis delay
             await new Promise(resolve => setTimeout(resolve, 2000));
             
-            // Map form industry to job library key
-            const libraryIndustry = ConfigUtils.mapIndustryToLibrary(industry);
+            // Extract matching tasks using keyword analysis
+            const matchedTasks = extractTasksFromDuties(duties);
             
-            // Try to find job in library first
             let strategies = [];
             
-            if (typeof jobLibrary !== 'undefined') {
-                const jobData = ConfigUtils.findJobStrategies(libraryIndustry, jobTitle, jobLibrary);
-                
-                if (jobData) {
-                    strategies = ConfigUtils.extractStrategies(jobData);
-                    ConfigUtils.log(`Found ${strategies.length} strategies in library for ${jobTitle}`, 'info');
-                } else {
-                    ConfigUtils.log(`No strategies found in library for ${jobTitle}, generating fallback`, 'info');
-                }
-            }
-            
-            // If no library matches, generate generic strategies
-            if (strategies.length === 0) {
-                const tasks = extractTasksFromDuties(duties);
-                
-                strategies = tasks.map(task => ({
-                    task: task.name,
-                    currentMethod: task.currentMethod,
-                    level1: {
-                        description: `AI assistant for ${task.name.toLowerCase()}`,
-                        setupTime: '15-30 minutes',
-                        weeklySavings: '2-4 hours',
-                        gain: Math.floor(Math.random() * 15) + 15,
-                        quickStart: `1. Choose an AI tool like ChatGPT or Claude\n2. Create templates for your common ${task.name.toLowerCase()} tasks\n3. Practice using the tool with real examples\n4. Set up quick access shortcuts\n5. Track your time savings`
-                    },
-                    level2: {
-                        description: `Automated workflow for ${task.name.toLowerCase()}`,
-                        setupTime: '2-4 hours',
-                        weeklySavings: '6-8 hours',
-                        gain: Math.floor(Math.random() * 15) + 35,
-                        quickStart: `1. Research automation tools like Zapier or Make.com\n2. Map your current ${task.name.toLowerCase()} process\n3. Connect your existing apps and tools\n4. Create automated workflows\n5. Test and refine the automation\n6. Train team members on new process`
-                    },
-                    level3: {
-                        description: `Complete AI system for ${task.name.toLowerCase()}`,
-                        setupTime: '1-2 weeks',
-                        weeklySavings: '10-15 hours',
-                        gain: Math.floor(Math.random() * 15) + 55,
-                        quickStart: `1. Design comprehensive AI-powered system\n2. Integrate multiple tools and platforms\n3. Create custom prompts and workflows\n4. Set up data connections and APIs\n5. Build reporting and monitoring\n6. Train entire team on new system\n7. Continuously optimize based based on results`
+            // Try to get strategies from job library
+            if (typeof jobLibrary !== 'undefined' && matchedTasks.length > 0) {
+                strategies = matchedTasks.map(task => {
+                    const categoryName = task.name;
+                    let strategyData = null;
+                    
+                    // Check if category has industry variants
+                    if (jobLibrary[categoryName]) {
+                        const categoryData = jobLibrary[categoryName];
+                        
+                        // Check for industry-specific strategy
+                        if (categoryData[industry]) {
+                            strategyData = categoryData[industry];
+                        } else if (categoryData.generic) {
+                            strategyData = categoryData.generic;
+                        } else {
+                            // Use the first available variant as fallback
+                            const firstVariant = Object.keys(categoryData)[0];
+                            strategyData = categoryData[firstVariant];
+                        }
                     }
-                }));
+                    
+                    if (strategyData) {
+                        return {
+                            task: categoryName,
+                            currentMethod: task.currentMethod,
+                            level1: strategyData,
+                            matchScore: task.score
+                        };
+                    }
+                    
+                    // Fallback if no library data
+                    return null;
+                }).filter(strategy => strategy !== null);
+            }
+
+            // If no strategies found, show no match message
+            if (strategies.length === 0) {
+                return {
+                    industry: industry,
+                    jobTitle,
+                    duties,
+                    strategies: [],
+                    noMatches: true
+                };
             }
 
             return {
-                industry: libraryIndustry,
+                industry: industry,
                 jobTitle,
                 duties,
                 strategies
             };
-        }
-
-        function extractTasksFromDuties(duties) {
-            const commonTasks = [
-                { name: 'Documentation & Record Keeping', currentMethod: 'Manual data entry and filing systems' },
-                { name: 'Communication & Follow-ups', currentMethod: 'Email chains and phone calls' },
-                { name: 'Analysis & Reporting', currentMethod: 'Manual spreadsheet analysis' },
-                { name: 'Planning & Scheduling', currentMethod: 'Manual calendar coordination' },
-                { name: 'Data Processing & Entry', currentMethod: 'Manual typing and copying' },
-                { name: 'Customer Service & Support', currentMethod: 'Individual response handling' }
-            ];
-
-            // Return 3-4 relevant tasks
-            const shuffled = commonTasks.sort(() => 0.5 - Math.random());
-            return shuffled.slice(0, 3 + Math.floor(Math.random() * 2));
         }
 
         function displayResults(analysis, jobTitle, industry) {
@@ -1242,54 +1310,66 @@
             document.getElementById('results-subtitle').textContent = `Personalized strategies based on your ${industry} workflows`;
             
             const container = document.getElementById('strategies-container');
-            container.innerHTML = analysis.strategies.map(strategy => `
-                <div class="strategy-card">
-                    <div class="strategy-header">
-                        <h3>${strategy.task}</h3>
-                        <p style="color: #6b7280; margin-top: 0.5rem;">Current: ${strategy.currentMethod}</p>
-                    </div>
-                    <div class="strategy-content">
-                        <div class="levels-grid">
-                            ${renderLevelCards(strategy)}
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            // Update monetization CTA
-            const totalStrategies = analysis.strategies.length * 3;
-            document.getElementById('monetization-title').textContent = 
-                `You've unlocked ${totalStrategies} efficiency improvements!`;
-        }
-
-        function renderLevelCards(strategy) {
-            return [1, 2, 3].map(level => {
-                const levelData = strategy[`level${level}`];
-                const levelIcon = level === 1 ? '⚡' : level === 2 ? '🎯' : '📈';
-                
-                return `
-                    <div class="level-card level${level}">
-                        <div class="level-header">
-                            <span style="font-size: 1.25rem;">${levelIcon}</span>
-                            <h4>Level ${level}</h4>
-                            <span class="gain-badge">+${levelData.gain}%</span>
-                        </div>
-                        <p style="font-size: 0.875rem; margin-bottom: 0.5rem;">${levelData.description}</p>
-                        <div class="time-savings">
-                            Setup: ${levelData.setupTime} | Saves: ${levelData.weeklySavings}/week
-                        </div>
-                        <button class="quick-start-btn" onclick="toggleQuickStart(this)">
-                            Quick Start Guide ▼
-                        </button>
-                        <div class="quick-start-content">
-                            ${formatQuickStart(levelData.quickStart)}
+            
+            if (analysis.noMatches) {
+                container.innerHTML = `
+                    <div class="no-match-message">
+                        <h3>No Specific Matches Found</h3>
+                        <p>We don't have efficiency strategies for your specific tasks yet, but we're working on it.</p>
+                        <div class="submit-link">
+                            <strong>Help us improve:</strong> <a href="#" onclick="scrollToCommunityForm()">Submit your suggestions here</a>
                         </div>
                     </div>
                 `;
-            }).join('');
+            } else {
+                container.innerHTML = analysis.strategies.map(strategy => `
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <h3>${strategy.task}</h3>
+                            <p style="color: #6b7280; margin-top: 0.5rem;">Current: ${strategy.currentMethod}</p>
+                        </div>
+                        <div class="strategy-content">
+                            <div class="level-card">
+                                <div class="level-header">
+                                    <span style="font-size: 1.25rem;">⚡</span>
+                                    <h4>Efficiency Strategy</h4>
+                                    <span class="gain-badge">+${strategy.level1.efficiencyGain || '25'}%</span>
+                                </div>
+                                <p style="font-size: 0.875rem; margin-bottom: 0.5rem;">${strategy.level1.description}</p>
+                                <div style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.75rem;">
+                                    <strong>Tools:</strong> ${strategy.level1.tools || 'AI-powered automation tools'}<br>
+                                    <strong>Setup:</strong> ${strategy.level1.setupTime || '30 minutes'} | 
+                                    <strong>Weekly Savings:</strong> ${strategy.level1.weeklySavings || '3-5 hours'}
+                                </div>
+                                <button class="quick-start-btn" onclick="toggleQuickStart(this)">
+                                    Quick Start Guide ▼
+                                </button>
+                                <div class="quick-start-content">
+                                    ${formatQuickStart(strategy.level1.quickGuide)}
+                                </div>
+                                <div class="submit-link">
+                                    <strong>Know an advanced strategy for this?</strong> <a href="#" onclick="scrollToCommunityForm()">Submit it here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Update monetization CTA
+            const totalStrategies = analysis.strategies.length;
+            if (totalStrategies > 0) {
+                document.getElementById('monetization-title').textContent = 
+                    `You've unlocked ${totalStrategies} efficiency improvements!`;
+            } else {
+                document.getElementById('monetization-title').textContent = 
+                    `Help us build better strategies for your field!`;
+            }
         }
 
         function formatQuickStart(text) {
+            if (!text) return 'Detailed implementation guide will be provided based on your specific tools and workflow.';
+            
             return text.split('\n').map(line => {
                 if (line.match(/^\d+\./)) {
                     return `<strong>${line}</strong>`;
@@ -1309,6 +1389,10 @@
                 content.style.display = 'block';
                 button.innerHTML = 'Quick Start Guide ▲';
             }
+        }
+
+        function scrollToCommunityForm() {
+            window.open('https://www.erinjacques.com/jobsimprovements', '_blank');
         }
 
         // UI Helper Functions
@@ -1343,35 +1427,6 @@
             document.getElementById('auth-messages').innerHTML = '';
         }
 
-        // Community Form Handler
-        async function handleCommunitySubmission(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const formData = new FormData(form);
-            
-            try {
-                const submitBtn = form.querySelector('.submit-btn');
-                const originalText = submitBtn.textContent;
-                
-                submitBtn.textContent = 'Submitting...';
-                submitBtn.disabled = true;
-                
-                // Simulate form submission
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                alert('Thank you for your submission! It will be reviewed soon.');
-                form.reset();
-                
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-            } catch (error) {
-                console.error('Submission error:', error);
-                alert('Submission failed. Please try again.');
-            }
-        }
-
         // Error handling helper
         function getReadableError(errorMessage) {
             const errorMap = {
@@ -1384,7 +1439,8 @@
             
             return errorMap[errorMessage] || 'Authentication failed. Please try again.';
         }
-// Google sign-in function
+
+        // Google sign-in function
         async function handleGoogleSignIn() {
             try {
                 if (!supabase) {
@@ -1406,6 +1462,7 @@
                 showAuthMessage('Google sign-in failed. Please try again.', 'error');
             }
         }
+
         // Make functions globally available for onclick handlers
         window.showAuthModal = showAuthModal;
         window.hideAuthModal = hideAuthModal;
@@ -1413,6 +1470,7 @@
         window.handleLogout = handleLogout;
         window.toggleQuickStart = toggleQuickStart;
         window.handleGoogleSignIn = handleGoogleSignIn;
+        window.scrollToCommunityForm = scrollToCommunityForm;
     </script>
 </body>
 </html>
