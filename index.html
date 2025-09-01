@@ -122,6 +122,51 @@
             margin-right: auto;
         }
         
+        /* Category Preview Styles */
+        .category-preview {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .category-preview h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #374151;
+        }
+        
+        .category-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .category-item {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 3px solid #3b82f6;
+            font-size: 0.875rem;
+        }
+        
+        .category-name {
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        
+        .category-count {
+            color: #6b7280;
+            font-size: 0.8rem;
+        }
+        
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -229,7 +274,6 @@
         }
         
         .feature-icon.level1 { background: #dbeafe; }
-        .feature-icon.level2 { background: #fef3c7; }
         .feature-icon.level3 { background: #dcfce7; }
         
         .feature-card h3 {
@@ -310,13 +354,6 @@
             border-radius: 0.25rem;
         }
         
-        .time-savings {
-            font-size: 0.75rem;
-            color: #6b7280;
-            margin-top: 0.5rem;
-            font-style: italic;
-        }
-        
         .quick-start-btn {
             background: rgba(59, 130, 246, 0.1);
             border: 1px solid #3b82f6;
@@ -344,6 +381,115 @@
             line-height: 1.4;
             border-left: 3px solid #3b82f6;
             display: none;
+        }
+        
+        /* Comments Section Styles */
+        .comments-section {
+            margin-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+            padding-top: 2rem;
+        }
+        
+        .comments-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .existing-comments {
+            margin-bottom: 2rem;
+        }
+        
+        .comment-item {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid #3b82f6;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comment-author {
+            font-weight: 500;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+        
+        .comment-date {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        
+        .comment-text {
+            color: #4b5563;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .add-comment-form {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .add-comment-form h4 {
+            margin-bottom: 1rem;
+            color: #374151;
+            font-size: 1rem;
+        }
+        
+        .add-comment-form textarea {
+            width: 100%;
+            min-height: 100px;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            resize: vertical;
+        }
+        
+        .submit-comment-btn {
+            background: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            border: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .submit-comment-btn:hover {
+            background: #059669;
+        }
+        
+        .submit-comment-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .comment-success {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
         }
         
         .submit-link {
@@ -434,52 +580,6 @@
             transform: translateY(-2px);
         }
         
-        .cta-btn.secondary {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-        }
-        
-        .cta-btn.secondary:hover {
-            background: white;
-            color: #3b82f6;
-        }
-        
-        .community-section {
-            background: #f9fafb;
-            padding: 2rem;
-            border-radius: 1rem;
-            margin-top: 3rem;
-        }
-        
-        .community-section h3 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .community-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .submit-btn {
-            background: #10b981;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            border: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .submit-btn:hover {
-            background: #059669;
-        }
-        
         .auth-modal {
             position: fixed;
             top: 0;
@@ -517,10 +617,6 @@
             color: #6b7280;
         }
         
-        .modal-close:hover {
-            color: #374151;
-        }
-        
         .modal-title {
             font-size: 1.5rem;
             font-weight: bold;
@@ -540,6 +636,22 @@
             gap: 1rem;
         }
         
+        .google-signin-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            color: #1f2937;
+            border: 1px solid #d1d5db;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        
         .auth-toggle {
             text-align: center;
             margin-top: 1rem;
@@ -551,10 +663,6 @@
             color: #3b82f6;
             text-decoration: none;
             cursor: pointer;
-        }
-        
-        .auth-toggle a:hover {
-            text-decoration: underline;
         }
         
         .error-message {
@@ -612,6 +720,10 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .category-stats {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -688,6 +800,17 @@
                 </form>
             </div>
 
+            <!-- Category Preview Section -->
+            <div class="category-preview">
+                <h3>See what's working in your field:</h3>
+                <div id="categoryStats" class="category-stats">
+                    <div class="category-item">
+                        <div class="category-name">Loading discussions...</div>
+                        <div class="category-count">Fetching data...</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="features">
                 <div class="feature-card">
                     <div style="font-size: 2rem; font-weight: bold; color: #3b82f6; margin-bottom: 1rem;">JOBS</div>
@@ -726,8 +849,6 @@
                 </div>
             </div>
         </div>
-
-
     </main>
 
     <!-- Authentication Modal -->
@@ -739,21 +860,21 @@
                 <div class="modal-subtitle" id="modal-subtitle">Sign up for unlimited job analyses and advanced features</div>
                 <div id="auth-messages"></div>
                 <form id="auth-form" class="auth-form">
-    <button type="button" class="google-signin-btn" onclick="handleGoogleSignIn()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: white; color: #1f2937; border: 1px solid #d1d5db; padding: 0.75rem; border-radius: 0.375rem; font-weight: 500; margin-bottom: 1rem;">
-        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 002.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 16c2.16 0 3.97-.72 5.3-1.94l-2.6-2.04a4.8 4.8 0 01-7.18-2.53H1.83v2.07A8 8 0 008.98 16z"/><path fill="#FBBC04" d="M4.5 9.49a4.8 4.8 0 010-3.07V4.35H1.83a8 8 0 000 7.28z"/><path fill="#EA4335" d="M8.98 4.72c1.16 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 001.83 6.42L4.5 8.49a4.77 4.77 0 014.48-3.77z"/></svg>
-        Continue with Google
-    </button>
-    
-    <div style="text-align: center; margin: 1rem 0; color: #6b7280; font-size: 0.875rem;">
-        or
-    </div>
-    
-    <input type="email" id="auth-email" placeholder="Your email address" required>
-    <input type="password" id="auth-password" placeholder="Password (min 6 characters)" required minlength="6">
-    <button type="submit" class="auth-btn" id="auth-submit" style="width: 100%;">
-        Continue Free Forever
-    </button>
-</form>
+                    <button type="button" class="google-signin-btn" onclick="handleGoogleSignIn()">
+                        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 002.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 16c2.16 0 3.97-.72 5.3-1.94l-2.6-2.04a4.8 4.8 0 01-7.18-2.53H1.83v2.07A8 8 0 008.98 16z"/><path fill="#FBBC04" d="M4.5 9.49a4.8 4.8 0 010-3.07V4.35H1.83a8 8 0 000 7.28z"/><path fill="#EA4335" d="M8.98 4.72c1.16 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 001.83 6.42L4.5 8.49a4.77 4.77 0 014.48-3.77z"/></svg>
+                        Continue with Google
+                    </button>
+                    
+                    <div style="text-align: center; margin: 1rem 0; color: #6b7280; font-size: 0.875rem;">
+                        or
+                    </div>
+                    
+                    <input type="email" id="auth-email" placeholder="Your email address" required>
+                    <input type="password" id="auth-password" placeholder="Password (min 6 characters)" required minlength="6">
+                    <button type="submit" class="auth-btn" id="auth-submit" style="width: 100%;">
+                        Continue Free Forever
+                    </button>
+                </form>
                 <div class="auth-toggle" id="auth-toggle">
                     Already have an account? <a onclick="toggleAuthMode()">Sign in</a>
                 </div>
@@ -767,7 +888,7 @@
     <script src="job-library.js"></script>
     
     <script>
-        // Configuration
+        // Configuration - Using settings from your working live version
         const APP_CONFIG = {
             supabase: {
                 url: 'https://hrgxcgdpyoeurxbpcatn.supabase.co',
@@ -779,7 +900,7 @@
             }
         };
 
-        // Task Categories with Keyword Arrays (280+ keywords total)
+        // Task Categories with Keywords from your live version (all 15 categories)
         const taskCategories = {
             'Documentation & Report Writing': {
                 keywords: ['report', 'document', 'write', 'record', 'log', 'note', 'summary', 'memo', 'brief', 'paper', 'documentation', 'filing', 'paperwork', 'forms', 'chart', 'journal', 'transcript', 'minutes', 'proposal', 'presentation', 'draft', 'documentation', 'writing', 'documenting', 'reports', 'charts', 'charting', 'notes', 'recording', 'logging']
@@ -842,6 +963,7 @@
         let currentUser = null;
         let usageCount = 5;
         let currentAuthMode = 'signup';
+        let currentAnalysis = null;
 
         // DOM Elements
         const formSection = document.getElementById('form-section');
@@ -866,6 +988,7 @@
         async function initializeApp() {
             await loadUserSession();
             updateUI();
+            await loadCategoryStats();
             
             // Set up auth state listener if Supabase is available
             if (supabase) {
@@ -955,6 +1078,94 @@
                 authButtons.classList.remove('hidden');
                 userMenu.classList.add('hidden');
             }
+        }
+
+        async function loadCategoryStats() {
+            const container = document.getElementById('categoryStats');
+            
+            if (!supabase) {
+                container.innerHTML = `
+                    <div class="category-item">
+                        <div class="category-name">📊 Marketing & Sales</div>
+                        <div class="category-count">12 discussions</div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-name">💻 Technology</div>
+                        <div class="category-count">18 discussions</div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-name">🏥 Healthcare</div>
+                        <div class="category-count">8 discussions</div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-name">📚 Education</div>
+                        <div class="category-count">15 discussions</div>
+                    </div>
+                `;
+                return;
+            }
+
+            try {
+                const { data: categoryData, error } = await supabase
+                    .from('comments')
+                    .select('job_category')
+                    .eq('approved', true);
+
+                if (error) throw error;
+
+                const categoryCounts = {};
+                categoryData.forEach(comment => {
+                    const category = comment.job_category;
+                    categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+                });
+
+                const sortedCategories = Object.entries(categoryCounts)
+                    .sort(([,a], [,b]) => b - a)
+                    .slice(0, 6);
+
+                if (sortedCategories.length === 0) {
+                    container.innerHTML = `
+                        <div class="category-item">
+                            <div class="category-name">🚀 Be the first!</div>
+                            <div class="category-count">Share your experience to start discussions</div>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = sortedCategories.map(([category, count]) => {
+                        const emoji = getCategoryEmoji(category);
+                        return `
+                            <div class="category-item">
+                                <div class="category-name">${emoji} ${category}</div>
+                                <div class="category-count">${count} discussion${count !== 1 ? 's' : ''}</div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+
+            } catch (error) {
+                console.error('Error loading category stats:', error);
+            }
+        }
+
+        function getCategoryEmoji(category) {
+            const emojiMap = {
+                'Documentation & Report Writing': '📝',
+                'Data Analysis & Processing': '📊',
+                'Communication & Email Management': '✉️',
+                'Customer Service & Support': '🤝',
+                'Project Management & Planning': '📋',
+                'Training & Education': '🎓',
+                'Quality Assurance & Testing': '✅',
+                'Financial Management & Accounting': '💰',
+                'Inventory & Supply Chain': '📦',
+                'Research & Development': '🔬',
+                'Marketing & Social Media': '📢',
+                'Lead Generation & Prospecting': '🎯',
+                'Talent Acquisition': '👥',
+                'Onboarding': '🚀',
+                'Customer/User Insights': '💡'
+            };
+            return emojiMap[category] || '💼';
         }
 
         // Auth Modal Functions
@@ -1132,6 +1343,26 @@
             localStorage.removeItem('jobs2course_usage');
             
             updateUI();
+            loadCategoryStats();
+
+            // Handle pending comment
+            const pendingComment = localStorage.getItem('pendingComment');
+            if (pendingComment) {
+                try {
+                    const comment = JSON.parse(pendingComment);
+                    localStorage.removeItem('pendingComment');
+                    
+                    setTimeout(() => {
+                        const textArea = document.getElementById(`comment-text-${comment.index}`);
+                        if (textArea) {
+                            textArea.value = comment.commentText;
+                            submitComment(comment.index, comment.category, comment.industry, comment.jobTitle);
+                        }
+                    }, 500);
+                } catch (error) {
+                    console.error('Error processing pending comment:', error);
+                }
+            }
         }
 
         async function handleLogout() {
@@ -1160,7 +1391,7 @@
             updateUI();
         }
 
-        // New Keyword-Based Task Extraction
+        // Task Extraction - Using improved keyword matching from your live version
         function extractTasksFromDuties(duties) {
             if (!duties || duties.trim().length === 0) {
                 return [];
@@ -1213,7 +1444,6 @@
                 return;
             }
 
-            // Check usage limits
             if (!currentUser && usageCount <= 0) {
                 showAuthModal('signup');
                 return;
@@ -1223,6 +1453,7 @@
 
             try {
                 const analysis = await analyzeJobDuties(industry, jobTitle, duties);
+                currentAnalysis = analysis;
                 
                 if (!currentUser) {
                     usageCount--;
@@ -1232,6 +1463,10 @@
 
                 displayResults(analysis, jobTitle, industry);
                 showResultsSection();
+
+                if (analysis.strategies && analysis.strategies.length > 0) {
+                    await loadCommentsForStrategies(analysis.strategies);
+                }
                 
             } catch (error) {
                 console.error('Analysis error:', error);
@@ -1251,14 +1486,14 @@
             let strategies = [];
             
             // Try to get strategies from job library
-            if (typeof jobLibrary !== 'undefined' && matchedTasks.length > 0) {
+            if (typeof window.jobLibrary !== 'undefined' && matchedTasks.length > 0) {
                 strategies = matchedTasks.map(task => {
                     const categoryName = task.name;
                     let strategyData = null;
                     
                     // Check if category has industry variants
-                    if (jobLibrary[categoryName]) {
-                        const categoryData = jobLibrary[categoryName];
+                    if (window.jobLibrary[categoryName]) {
+                        const categoryData = window.jobLibrary[categoryName];
                         
                         // Check for industry-specific strategy
                         if (categoryData[industry]) {
@@ -1281,7 +1516,6 @@
                         };
                     }
                     
-                    // Fallback if no library data
                     return null;
                 }).filter(strategy => strategy !== null);
             }
@@ -1289,7 +1523,7 @@
             // If no strategies found, show no match message
             if (strategies.length === 0) {
                 return {
-                    industry: industry,
+                    industry,
                     jobTitle,
                     duties,
                     strategies: [],
@@ -1298,7 +1532,7 @@
             }
 
             return {
-                industry: industry,
+                industry,
                 jobTitle,
                 duties,
                 strategies
@@ -1317,12 +1551,12 @@
                         <h3>No Specific Matches Found</h3>
                         <p>We don't have efficiency strategies for your specific tasks yet, but we're working on it.</p>
                         <div class="submit-link">
-                            <strong>Help us improve:</strong> <a href="#" onclick="scrollToCommunityForm()">Submit your suggestions here</a>
+                            <strong>Help us improve:</strong> <a href="https://www.erinjacques.com/jobsimprovements" target="_blank">Submit your suggestions here</a>
                         </div>
                     </div>
                 `;
             } else {
-                container.innerHTML = analysis.strategies.map(strategy => `
+                container.innerHTML = analysis.strategies.map((strategy, index) => `
                     <div class="strategy-card">
                         <div class="strategy-header">
                             <h3>${strategy.task}</h3>
@@ -1348,7 +1582,35 @@
                                     ${formatQuickStart(strategy.level1.quickGuide)}
                                 </div>
                                 <div class="submit-link">
-                                    <strong>Know an advanced strategy for this?</strong> <a href="#" onclick="scrollToCommunityForm()">Submit it here</a>
+                                    <strong>Know an advanced strategy for this?</strong> <a href="https://www.erinjacques.com/jobsimprovements" target="_blank">Submit it here</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Comments Section -->
+                            <div class="comments-section" id="comments-${index}">
+                                <div class="comments-header">
+                                    💬 What others are saying about similar suggestions:
+                                </div>
+                                <div class="existing-comments" id="existing-comments-${index}">
+                                    <div style="text-align: center; color: #6b7280; font-size: 0.875rem; padding: 1rem;">
+                                        Loading comments...
+                                    </div>
+                                </div>
+                                <div class="add-comment-form">
+                                    <h4>Share your experience:</h4>
+                                    <div id="comment-form-${index}">
+                                        <textarea 
+                                            id="comment-text-${index}" 
+                                            placeholder="Did these suggestions work for you? Any additional tips to share?"
+                                            maxlength="1000"
+                                        ></textarea>
+                                        <button 
+                                            class="submit-comment-btn" 
+                                            onclick="submitComment(${index}, '${strategy.task}', '${analysis.industry}', '${analysis.jobTitle}')"
+                                        >
+                                            Share Feedback
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1356,15 +1618,201 @@
                 `).join('');
             }
 
-            // Update monetization CTA
             const totalStrategies = analysis.strategies.length;
             if (totalStrategies > 0) {
                 document.getElementById('monetization-title').textContent = 
                     `You've unlocked ${totalStrategies} efficiency improvements!`;
-            } else {
-                document.getElementById('monetization-title').textContent = 
-                    `Help us build better strategies for your field!`;
             }
+        }
+
+        // Comments Functions
+        async function loadCommentsForStrategies(strategies) {
+            for (let i = 0; i < strategies.length; i++) {
+                const strategy = strategies[i];
+                await loadCommentsForStrategy(i, strategy.task);
+            }
+        }
+
+        async function loadCommentsForStrategy(index, category) {
+            const commentsContainer = document.getElementById(`existing-comments-${index}`);
+            
+            if (!supabase) {
+                commentsContainer.innerHTML = getDemoComments(category);
+                return;
+            }
+
+            try {
+                const { data: comments, error } = await supabase
+                    .from('comments')
+                    .select('*')
+                    .eq('job_category', category)
+                    .eq('approved', true)
+                    .order('created_at', { ascending: false })
+                    .limit(5);
+
+                if (error) throw error;
+
+                if (comments.length === 0) {
+                    commentsContainer.innerHTML = `
+                        <div style="text-align: center; color: #6b7280; font-size: 0.875rem; padding: 1rem;">
+                            No comments yet. Be the first to share your experience!
+                        </div>
+                    `;
+                } else {
+                    commentsContainer.innerHTML = comments.map(comment => `
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <span class="comment-author">${maskEmail(comment.user_email)}</span>
+                                <span class="comment-date">${formatDate(comment.created_at)}</span>
+                            </div>
+                            <div class="comment-text">${escapeHtml(comment.comment_text)}</div>
+                        </div>
+                    `).join('');
+                }
+
+            } catch (error) {
+                console.error('Error loading comments:', error);
+                commentsContainer.innerHTML = `
+                    <div style="text-align: center; color: #ef4444; font-size: 0.875rem; padding: 1rem;">
+                        Unable to load comments
+                    </div>
+                `;
+            }
+        }
+
+        function getDemoComments(category) {
+            const demoComments = {
+                'Documentation & Report Writing': [
+                    {
+                        user_email: 'sarah.m@example.com',
+                        comment_text: 'The template approach saved me 2 hours per week! I created standard formats for all my reports.',
+                        created_at: '2024-01-15T10:30:00Z'
+                    }
+                ],
+                'Communication & Email Management': [
+                    {
+                        user_email: 'anna.k@work.com',
+                        comment_text: 'Email templates are a game changer! I cut my response time in half.',
+                        created_at: '2024-01-12T09:15:00Z'
+                    }
+                ]
+            };
+
+            const comments = demoComments[category] || [];
+            
+            if (comments.length === 0) {
+                return `
+                    <div style="text-align: center; color: #6b7280; font-size: 0.875rem; padding: 1rem;">
+                        No comments yet. Be the first to share your experience!
+                    </div>
+                `;
+            }
+
+            return comments.map(comment => `
+                <div class="comment-item">
+                    <div class="comment-header">
+                        <span class="comment-author">${maskEmail(comment.user_email)}</span>
+                        <span class="comment-date">${formatDate(comment.created_at)}</span>
+                    </div>
+                    <div class="comment-text">${escapeHtml(comment.comment_text)}</div>
+                </div>
+            `).join('');
+        }
+
+        async function submitComment(index, category, industry, jobTitle) {
+            const commentText = document.getElementById(`comment-text-${index}`).value.trim();
+            
+            if (!commentText) {
+                alert('Please enter a comment before submitting.');
+                return;
+            }
+
+            if (!currentUser) {
+                localStorage.setItem('pendingComment', JSON.stringify({
+                    index, category, industry, jobTitle, commentText
+                }));
+                showAuthModal('signup');
+                return;
+            }
+
+            const submitBtn = document.querySelector(`#comment-form-${index} .submit-comment-btn`);
+            const originalText = submitBtn.textContent;
+            
+            try {
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+
+                if (supabase) {
+                    const { error } = await supabase
+                        .from('comments')
+                        .insert([{
+                            user_id: currentUser.id,
+                            user_email: currentUser.email,
+                            user_name: currentUser.user_metadata?.full_name || currentUser.email.split('@')[0],
+                            job_category: category,
+                            job_title: jobTitle,
+                            industry: industry,
+                            comment_text: commentText,
+                            approved: false
+                        }]);
+
+                    if (error) throw error;
+                }
+
+                const formContainer = document.getElementById(`comment-form-${index}`);
+                formContainer.innerHTML = `
+                    <div class="comment-success">
+                        ✅ Thank you for sharing! Your comment is being reviewed and will appear soon.
+                    </div>
+                `;
+
+                await loadCategoryStats();
+
+            } catch (error) {
+                console.error('Error submitting comment:', error);
+                alert('Failed to submit comment. Please try again.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        // Utility functions
+        function maskEmail(email) {
+            if (!email || typeof email !== 'string') return 'Anonymous';
+            const [username, domain] = email.split('@');
+            if (!username || !domain) return 'Anonymous';
+            
+            if (username.length <= 2) {
+                return username[0] + '*@' + domain;
+            } else {
+                return username[0] + '*'.repeat(Math.min(3, username.length - 1)) + '@' + domain;
+            }
+        }
+
+        function formatDate(dateString) {
+            try {
+                const date = new Date(dateString);
+                const now = new Date();
+                const diffMs = now - date;
+                const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === 0) return 'Today';
+                if (diffDays === 1) return 'Yesterday';
+                if (diffDays < 7) return `${diffDays} days ago`;
+                if (diffDays < 30) {
+                    const weeks = Math.floor(diffDays / 7);
+                    return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
+                }
+                return date.toLocaleDateString();
+            } catch (error) {
+                return 'Recently';
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
 
         function formatQuickStart(text) {
@@ -1389,10 +1837,6 @@
                 content.style.display = 'block';
                 button.innerHTML = 'Quick Start Guide ▲';
             }
-        }
-
-        function scrollToCommunityForm() {
-            window.open('https://www.erinjacques.com/jobsimprovements', '_blank');
         }
 
         // UI Helper Functions
@@ -1427,7 +1871,6 @@
             document.getElementById('auth-messages').innerHTML = '';
         }
 
-        // Error handling helper
         function getReadableError(errorMessage) {
             const errorMap = {
                 'Invalid login credentials': 'Invalid email or password',
@@ -1440,7 +1883,7 @@
             return errorMap[errorMessage] || 'Authentication failed. Please try again.';
         }
 
-        // Google sign-in function
+        // Google sign-in function - Using the working implementation from your live version
         async function handleGoogleSignIn() {
             try {
                 if (!supabase) {
@@ -1451,7 +1894,7 @@
                 const { data, error } = await supabase.auth.signInWithOAuth({
                     provider: 'google',
                     options: {
-                        redirectTo: 'https://ejacques1.github.io/Jobs2Course'
+                        redirectTo: 'https://jobs2course.com'
                     }
                 });
 
@@ -1470,7 +1913,6 @@
         window.handleLogout = handleLogout;
         window.toggleQuickStart = toggleQuickStart;
         window.handleGoogleSignIn = handleGoogleSignIn;
-        window.scrollToCommunityForm = scrollToCommunityForm;
     </script>
 </body>
 </html>
