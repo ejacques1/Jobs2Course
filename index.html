@@ -991,7 +991,7 @@
     <script src="job-library.js"></script>
     
     <script>
-        // Configuration - Using settings from your working live version
+        // Configuration - AI Integration
         const APP_CONFIG = {
             supabase: {
                 url: 'https://hrgxcgdpyoeurxbpcatn.supabase.co',
@@ -1000,6 +1000,12 @@
             usage: {
                 freeAnalyses: 5,
                 resetPeriod: 24 * 60 * 60 * 1000
+            },
+            ai: {
+                provider: 'openrouter',
+                apiKey: 'YOUR_OPENROUTER_API_KEY', // Replace with your actual API key
+                model: 'meta-llama/llama-3.3-70b-instruct',
+                baseUrl: 'https://openrouter.ai/api/v1'
             }
         };
 
@@ -1580,31 +1586,23 @@
         }
 
         async function analyzeJobDuties(industry, jobTitle, duties) {
-            // Simulate analysis delay
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Extract matching tasks using keyword analysis
+            // Step 1: Immediate keyword-based analysis
             const matchedTasks = extractTasksFromDuties(duties);
+            let initialStrategies = [];
             
-            let strategies = [];
-            
-            // Try to get strategies from job library
             if (typeof window.jobLibrary !== 'undefined' && matchedTasks.length > 0) {
-                strategies = matchedTasks.map(task => {
+                initialStrategies = matchedTasks.map(task => {
                     const categoryName = task.name;
                     let strategyData = null;
                     
-                    // Check if category has industry variants
                     if (window.jobLibrary[categoryName]) {
                         const categoryData = window.jobLibrary[categoryName];
                         
-                        // Check for industry-specific strategy
                         if (categoryData[industry]) {
                             strategyData = categoryData[industry];
                         } else if (categoryData.generic) {
                             strategyData = categoryData.generic;
                         } else {
-                            // Use the first available variant as fallback
                             const firstVariant = Object.keys(categoryData)[0];
                             strategyData = categoryData[firstVariant];
                         }
@@ -1615,7 +1613,8 @@
                             task: categoryName,
                             currentMethod: task.currentMethod,
                             level1: strategyData,
-                            matchScore: task.score
+                            matchScore: task.score,
+                            isEnhancing: true // Flag to show this will be enhanced
                         };
                     }
                     
@@ -1623,23 +1622,24 @@
                 }).filter(strategy => strategy !== null);
             }
 
-            // If no strategies found, show no match message
-            if (strategies.length === 0) {
-                return {
-                    industry,
-                    jobTitle,
-                    duties,
-                    strategies: [],
-                    noMatches: true
-                };
-            }
-
-            return {
+            // Return initial results immediately
+            const initialAnalysis = {
                 industry,
                 jobTitle,
                 duties,
-                strategies
+                strategies: initialStrategies,
+                noMatches: initialStrategies.length === 0
             };
+
+            // Step 2: Enhance with AI in background (don't await)
+            if (initialStrategies.length > 0) {
+                enhanceWithAI(initialAnalysis).catch(error => {
+                    console.error('AI enhancement failed:', error);
+                    // Continue with initial results if AI fails
+                });
+            }
+
+            return initialAnalysis;
         }
 
         function displayResults(analysis, jobTitle, industry) {
@@ -1843,6 +1843,17 @@
                 submitBtn.textContent = 'Submitting...';
                 submitBtn.disabled = true;
 
+                // Get the AI strategy summary for context
+                let aiStrategySummary = '';
+                if (currentAnalysis && currentAnalysis.strategies && currentAnalysis.strategies[index]) {
+                    const strategy = currentAnalysis.strategies[index];
+                    if (strategy.aiEnhanced) {
+                        aiStrategySummary = strategy.level1.description.substring(0, 200) + '...';
+                    } else {
+                        aiStrategySummary = strategy.level1.description.substring(0, 200) + '...';
+                    }
+                }
+
                 if (supabase) {
                     const { error } = await supabase
                         .from('comments')
@@ -1854,6 +1865,7 @@
                             job_title: jobTitle,
                             industry: industry,
                             comment_text: commentText,
+                            ai_strategy_summary: aiStrategySummary, // Store AI context
                             approved: false
                         }]);
 
@@ -2007,7 +2019,218 @@
             }
         }
 
-        // Category Discussion Functions
+        // AI Enhancement Functions
+        async function enhanceWithAI(analysis) {
+            try {
+                // Show enhancement message to user
+                showAIEnhancementMessage();
+                
+                // Prepare AI prompt with job library examples
+                const aiPrompt = buildEnhancementPrompt(analysis);
+                
+                // Call OpenRouter API
+                const aiResponse = await callOpenRouterAPI(aiPrompt);
+                
+                // Parse and apply AI enhancements
+                const enhancedStrategies = parseAIResponse(aiResponse, analysis);
+                
+                // Update the displayed results
+                updateResultsWithAI(enhancedStrategies);
+                
+                // Store current analysis for comment context
+                currentAnalysis = {
+                    ...analysis,
+                    strategies: enhancedStrategies,
+                    aiEnhanced: true
+                };
+                
+            } catch (error) {
+                console.error('AI enhancement error:', error);
+                hideAIEnhancementMessage();
+            }
+        }
+
+        function buildEnhancementPrompt(analysis) {
+            const { industry, jobTitle, duties, strategies } = analysis;
+            
+            // Include relevant job library examples as context
+            const exampleStrategies = strategies.map(strategy => {
+                const categoryData = window.jobLibrary[strategy.task];
+                if (categoryData && categoryData[industry]) {
+                    return `${strategy.task} (${industry}): ${categoryData[industry].description}`;
+                }
+                return null;
+            }).filter(Boolean).join('\n\n');
+
+            return `You are an expert job efficiency analyst. Based on the user's specific role and responsibilities, enhance these initial strategy recommendations with personalized insights.
+
+USER CONTEXT:
+- Industry: ${industry}
+- Job Title: ${jobTitle}
+- Key Responsibilities: ${duties}
+
+EXAMPLE STRATEGIES FROM OUR LIBRARY:
+${exampleStrategies}
+
+MATCHED CATEGORIES: ${strategies.map(s => s.task).join(', ')}
+
+Please provide enhanced, personalized strategies that:
+1. Address their specific workflow challenges mentioned in responsibilities
+2. Include industry-appropriate compliance considerations
+3. Suggest specific tools that match their context
+4. Provide realistic time estimates based on their role complexity
+5. Include actionable next steps tailored to their situation
+
+Format your response as JSON with this structure:
+{
+  "strategies": [
+    {
+      "category": "Category Name",
+      "personalizedDescription": "Enhanced description based on their specific role...",
+      "recommendedTools": "Specific tools for their situation...",
+      "customSetupTime": "Realistic time estimate...",
+      "personalizedQuickGuide": "Step-by-step guide tailored to their workflow...",
+      "complianceNotes": "Industry-specific compliance considerations..."
+    }
+  ]
+}
+
+Keep responses professional, practical, and actionable. Focus on value they can implement immediately.`;
+        }
+
+        async function callOpenRouterAPI(prompt) {
+            // Use Supabase Edge Function instead of direct API call
+            const { data, error } = await supabase.functions.invoke('enhance-job-analysis', {
+                body: {
+                    industry: currentAnalysis.industry,
+                    jobTitle: currentAnalysis.jobTitle,
+                    duties: currentAnalysis.duties,
+                    strategies: currentAnalysis.strategies
+                }
+            });
+
+            if (error) {
+                throw new Error(`Supabase function error: ${error.message}`);
+            }
+
+            if (data.error) {
+                throw new Error(`AI API error: ${data.error}`);
+            }
+
+            return data.choices[0].message.content;
+        }
+
+        function parseAIResponse(aiResponse, originalAnalysis) {
+            try {
+                // Try to parse JSON response
+                const parsed = JSON.parse(aiResponse);
+                
+                return originalAnalysis.strategies.map(originalStrategy => {
+                    const aiEnhancement = parsed.strategies.find(s => 
+                        s.category === originalStrategy.task
+                    );
+                    
+                    if (aiEnhancement) {
+                        return {
+                            ...originalStrategy,
+                            level1: {
+                                ...originalStrategy.level1,
+                                description: aiEnhancement.personalizedDescription,
+                                tools: aiEnhancement.recommendedTools,
+                                setupTime: aiEnhancement.customSetupTime,
+                                quickGuide: aiEnhancement.personalizedQuickGuide,
+                                complianceNotes: aiEnhancement.complianceNotes
+                            },
+                            aiEnhanced: true
+                        };
+                    }
+                    
+                    return originalStrategy;
+                });
+                
+            } catch (error) {
+                console.error('Failed to parse AI response:', error);
+                // Return original strategies if parsing fails
+                return originalAnalysis.strategies;
+            }
+        }
+
+        function showAIEnhancementMessage() {
+            const enhancementNotice = document.createElement('div');
+            enhancementNotice.id = 'ai-enhancement-notice';
+            enhancementNotice.innerHTML = `
+                <div style="background: #f0f9ff; border: 1px solid #0ea5e9; border-radius: 0.5rem; padding: 1rem; margin: 1rem 0; text-align: center;">
+                    <div style="color: #0c4a6e; font-weight: 500; margin-bottom: 0.5rem;">✨ Personalizing your strategies...</div>
+                    <div style="color: #0369a1; font-size: 0.875rem;">Analyzing your specific role for customized recommendations</div>
+                </div>
+            `;
+            
+            const strategiesContainer = document.getElementById('strategies-container');
+            strategiesContainer.insertBefore(enhancementNotice, strategiesContainer.firstChild);
+        }
+
+        function hideAIEnhancementMessage() {
+            const notice = document.getElementById('ai-enhancement-notice');
+            if (notice) {
+                notice.remove();
+            }
+        }
+
+        function updateResultsWithAI(enhancedStrategies) {
+            // Hide the enhancement message
+            hideAIEnhancementMessage();
+            
+            // Update each strategy card with AI-enhanced content
+            enhancedStrategies.forEach((strategy, index) => {
+                updateStrategyCard(index, strategy);
+            });
+
+            // Add enhancement success message
+            const successNotice = document.createElement('div');
+            successNotice.innerHTML = `
+                <div style="background: #d1fae5; border: 1px solid #10b981; border-radius: 0.5rem; padding: 1rem; margin: 1rem 0; text-align: center; animation: fadeIn 0.5s;">
+                    <div style="color: #065f46; font-weight: 500;">🎯 Strategies personalized for your specific role!</div>
+                </div>
+            `;
+            
+            const strategiesContainer = document.getElementById('strategies-container');
+            strategiesContainer.insertBefore(successNotice, strategiesContainer.firstChild);
+            
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                successNotice.remove();
+            }, 5000);
+        }
+
+        function updateStrategyCard(index, strategy) {
+            const cardContent = document.querySelector(`#strategies-container .strategy-card:nth-child(${index + 1}) .level-card`);
+            if (!cardContent) return;
+            
+            // Update the strategy content with AI enhancements
+            const levelHeader = cardContent.querySelector('.level-header');
+            const description = levelHeader.nextElementSibling;
+            const details = description.nextElementSibling;
+            const quickGuide = cardContent.querySelector('.quick-start-content');
+            
+            if (description) {
+                description.textContent = strategy.level1.description;
+                description.style.animation = 'fadeIn 0.5s';
+            }
+            
+            if (details) {
+                details.innerHTML = `
+                    <strong>Tools:</strong> ${strategy.level1.tools || 'AI-powered automation tools'}<br>
+                    <strong>Setup:</strong> ${strategy.level1.setupTime || '30 minutes'} | 
+                    <strong>Weekly Savings:</strong> ${strategy.level1.weeklySavings || '3-5 hours'}
+                    ${strategy.level1.complianceNotes ? `<br><strong>Compliance:</strong> ${strategy.level1.complianceNotes}` : ''}
+                `;
+                details.style.animation = 'fadeIn 0.5s';
+            }
+            
+            if (quickGuide) {
+                quickGuide.innerHTML = formatQuickStart(strategy.level1.quickGuide);
+            }
+        }
         async function showCategoryDiscussion(category) {
             console.log('Showing discussions for category:', category);
             
@@ -2074,6 +2297,12 @@
 
             commentsContainer.innerHTML = comments.map(comment => `
                 <div class="category-comment-item">
+                    ${comment.ai_strategy_summary ? `
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.375rem; padding: 0.75rem; margin-bottom: 0.75rem; border-left: 3px solid #3b82f6;">
+                            <div style="font-size: 0.8rem; color: #475569; font-weight: 500; margin-bottom: 0.25rem;">AI Strategy Context:</div>
+                            <div style="font-size: 0.8rem; color: #64748b; font-style: italic;">"${comment.ai_strategy_summary}"</div>
+                        </div>
+                    ` : ''}
                     <div class="category-comment-meta">
                         <span class="category-comment-author">${maskEmail(comment.user_email)}</span>
                         <span class="category-comment-job">${comment.job_title} - ${comment.industry}</span>
