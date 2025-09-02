@@ -1630,7 +1630,10 @@
                 strategies: initialStrategies,
                 noMatches: initialStrategies.length === 0
             };
-
+            
+// Set currentAnalysis before AI enhancement
+currentAnalysis = initialAnalysis;
+            
             // Step 2: Enhance with AI in background (don't await)
             if (initialStrategies.length > 0) {
                 enhanceWithAI(initialAnalysis).catch(error => {
