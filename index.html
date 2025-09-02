@@ -122,59 +122,6 @@
             margin-right: auto;
         }
         
-        /* Category Preview Styles */
-        .category-preview {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .category-preview h3 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: #374151;
-        }
-        
-        .category-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        
-        .category-item {
-            background: #f9fafb;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border-left: 3px solid #3b82f6;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .category-item:hover {
-            background: #eff6ff;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .category-name {
-            font-weight: 500;
-            color: #374151;
-            margin-bottom: 0.25rem;
-        }
-        
-        .category-count {
-            color: #6b7280;
-            font-size: 0.8rem;
-        }
-        
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -391,135 +338,6 @@
             display: none;
         }
         
-        /* Comments Section Styles */
-        .comments-section {
-            margin-top: 2rem;
-            border-top: 2px solid #e5e7eb;
-            padding-top: 2rem;
-        }
-        
-        .comments-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #374151;
-        }
-        
-        .existing-comments {
-            margin-bottom: 2rem;
-        }
-        
-        .comment-item {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-left: 3px solid #3b82f6;
-        }
-        
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .comment-author {
-            font-weight: 500;
-            color: #374151;
-            font-size: 0.875rem;
-        }
-        
-        .comment-date {
-            font-size: 0.75rem;
-            color: #6b7280;
-        }
-        
-        .comment-text {
-            color: #4b5563;
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-        
-        .add-comment-form {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-        }
-        
-        .add-comment-form h4 {
-            margin-bottom: 1rem;
-            color: #374151;
-            font-size: 1rem;
-        }
-        
-        .add-comment-form textarea {
-            width: 100%;
-            min-height: 100px;
-            margin-bottom: 1rem;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            resize: vertical;
-        }
-        
-        .submit-comment-btn {
-            background: #10b981;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            border: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .submit-comment-btn:hover {
-            background: #059669;
-        }
-        
-        .submit-comment-btn:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-        }
-        
-        .comment-success {
-            background: #d1fae5;
-            color: #065f46;
-            padding: 1rem;
-            border-radius: 0.375rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-size: 0.875rem;
-        }
-        
-        .submit-link {
-            margin-top: 1rem;
-            padding: 0.75rem;
-            background: #f0f9ff;
-            border-radius: 0.5rem;
-            border-left: 4px solid #3b82f6;
-            font-size: 0.875rem;
-            color: #1e40af;
-        }
-        
-        .submit-link a {
-            color: #3b82f6;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .submit-link a:hover {
-            text-decoration: underline;
-        }
-        
         .no-match-message {
             background: white;
             border-radius: 1rem;
@@ -707,88 +525,6 @@
             100% { transform: rotate(360deg); }
         }
         
-        .category-discussion-view {
-            display: none;
-            max-width: 800px;
-            margin: 2rem auto;
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-        }
-        
-        .category-discussion-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 1rem;
-        }
-        
-        .back-to-main-btn {
-            background: #e5e7eb;
-            color: #374151;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            border: none;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .back-to-main-btn:hover {
-            background: #d1d5db;
-        }
-        
-        .category-discussion-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #374151;
-            margin: 0;
-        }
-        
-        .category-discussion-comments {
-            margin-top: 1rem;
-        }
-        
-        .category-comment-item {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #3b82f6;
-        }
-        
-        .category-comment-meta {
-            display: flex;
-            justify-content: between;
-            align-items: center;
-            margin-bottom: 0.75rem;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .category-comment-author {
-            font-weight: 500;
-            color: #374151;
-            font-size: 0.9rem;
-        }
-        
-        .category-comment-job {
-            color: #6b7280;
-            font-size: 0.8rem;
-            font-style: italic;
-        }
-        
-        .category-comment-date {
-            color: #6b7280;
-            font-size: 0.8rem;
-            margin-left: auto;
-        }
-        
-        
         .hidden {
             display: none;
         }
@@ -811,10 +547,6 @@
                 flex-direction: column;
                 align-items: center;
             }
-            
-            .category-stats {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -835,19 +567,6 @@
                         <span id="user-email"></span>
                         <button class="auth-btn" id="logout-btn" onclick="handleLogout()">Sign Out</button>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Category Discussion View -->
-        <div id="category-discussion-view" class="category-discussion-view">
-            <div class="category-discussion-header">
-                <button class="back-to-main-btn" onclick="showMainView()">← Back to Main</button>
-                <h2 class="category-discussion-title" id="category-discussion-title">Category Discussions</h2>
-            </div>
-            <div class="category-discussion-comments" id="category-discussion-comments">
-                <div style="text-align: center; color: #6b7280; padding: 2rem;">
-                    Loading discussions...
                 </div>
             </div>
         </div>
@@ -903,23 +622,12 @@
                 </form>
             </div>
 
-            <!-- Category Preview Section -->
-            <div class="category-preview">
-                <h3>See what's working in your field:</h3>
-                <div id="categoryStats" class="category-stats">
-                    <div class="category-item">
-                        <div class="category-name">Loading discussions...</div>
-                        <div class="category-count">Fetching data...</div>
-                    </div>
-                </div>
-            </div>
-
             <div class="features">
                 <div class="feature-card">
                     <div style="font-size: 2rem; font-weight: bold; color: #3b82f6; margin-bottom: 1rem;">JOBS</div>
                     <div class="feature-icon level1">⚡</div>
-                    <h3>Level 1: Quick Wins</h3>
-                    <p>Simple AI tools you can implement in 30 minutes for 20-30% efficiency gains</p>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>Get personalized efficiency strategies tailored to your specific role and industry</p>
                 </div>
                 <div class="feature-card">
                     <div style="font-size: 2rem; font-weight: bold; color: #3b82f6; margin-bottom: 1rem;">COURSES</div>
@@ -991,7 +699,7 @@
     <script src="job-library.js"></script>
     
     <script>
-        // Configuration - AI Integration
+        // Configuration
         const APP_CONFIG = {
             supabase: {
                 url: 'https://hrgxcgdpyoeurxbpcatn.supabase.co',
@@ -1000,70 +708,29 @@
             usage: {
                 freeAnalyses: 5,
                 resetPeriod: 24 * 60 * 60 * 1000
-            },
-            ai: {
-                provider: 'openrouter',
-                apiKey: 'YOUR_OPENROUTER_API_KEY', // Replace with your actual API key
-                model: 'meta-llama/llama-3.3-70b-instruct',
-                baseUrl: 'https://openrouter.ai/api/v1'
             }
         };
 
-        // Task Categories with Keywords from your live version (all 15 categories)
+        // Task Categories for fallback matching
         const taskCategories = {
             'Documentation & Report Writing': {
-                keywords: ['report', 'document', 'write', 'record', 'log', 'note', 'summary', 'memo', 'brief', 'paper', 'documentation', 'filing', 'paperwork', 'forms', 'chart', 'journal', 'transcript', 'minutes', 'proposal', 'presentation', 'draft', 'documentation', 'writing', 'documenting', 'reports', 'charts', 'charting', 'notes', 'recording', 'logging']
+                keywords: ['report', 'document', 'write', 'record', 'log', 'note', 'summary', 'memo', 'brief', 'paper', 'documentation', 'filing', 'paperwork', 'forms', 'chart', 'journal', 'transcript', 'minutes', 'proposal', 'presentation', 'draft']
             },
             'Data Analysis & Processing': {
-                keywords: ['data', 'analyze', 'analysis', 'spreadsheet', 'excel', 'numbers', 'calculate', 'metrics', 'statistics', 'stats', 'kpi', 'dashboard', 'chart', 'graph', 'pivot', 'formula', 'database', 'sql', 'query', 'trend', 'forecast', 'budget', 'financial', 'analytics', 'processing', 'calculations', 'formulas', 'pivot tables', 'visualizations']
+                keywords: ['data', 'analyze', 'analysis', 'spreadsheet', 'excel', 'numbers', 'calculate', 'metrics', 'statistics', 'stats', 'kpi', 'dashboard', 'chart', 'graph', 'pivot', 'formula', 'database', 'sql', 'query', 'trend', 'forecast', 'budget', 'financial', 'analytics']
             },
             'Communication & Email Management': {
-                keywords: ['email', 'communicate', 'call', 'phone', 'meeting', 'respond', 'follow up', 'contact', 'correspondence', 'message', 'reply', 'outreach', 'discussion', 'conference', 'zoom', 'teams', 'slack', 'chat', 'coordinate', 'liaise', 'emails', 'messaging', 'communications', 'calling', 'meetings', 'responses']
+                keywords: ['email', 'communicate', 'call', 'phone', 'meeting', 'respond', 'follow up', 'contact', 'correspondence', 'message', 'reply', 'outreach', 'discussion', 'conference', 'zoom', 'teams', 'slack', 'chat', 'coordinate', 'liaise']
             },
             'Customer Service & Support': {
-                keywords: ['customer', 'client', 'support', 'help', 'service', 'assist', 'resolve', 'issue', 'problem', 'complaint', 'inquiry', 'ticket', 'case', 'troubleshoot', 'satisfaction', 'feedback', 'escalation', 'follow-up', 'retention', 'relationship', 'customers', 'clients', 'supporting', 'helping', 'servicing', 'assisting']
-            },
-            'Project Management & Planning': {
-                keywords: ['project', 'plan', 'planning', 'manage', 'coordinate', 'schedule', 'timeline', 'deadline', 'milestone', 'task', 'organize', 'workflow', 'process', 'oversight', 'tracking', 'progress', 'status', 'resource', 'allocation', 'gantt', 'projects', 'managing', 'coordination', 'scheduling', 'organizing', 'planning']
-            },
-            'Training & Education': {
-                keywords: ['train', 'training', 'teach', 'educate', 'instruct', 'mentor', 'coach', 'workshop', 'seminar', 'presentation', 'curriculum', 'lesson', 'course', 'onboard', 'orientation', 'development', 'skill', 'learning', 'knowledge', 'certification', 'teaching', 'educating', 'instructing', 'mentoring', 'coaching']
-            },
-            'Quality Assurance & Testing': {
-                keywords: ['quality', 'test', 'testing', 'check', 'review', 'audit', 'inspect', 'verify', 'validate', 'compliance', 'standard', 'procedure', 'guideline', 'assurance', 'control', 'improvement', 'defect', 'bug', 'error', 'correction', 'qa', 'qc', 'testing', 'reviewing', 'auditing', 'inspecting', 'checking']
-            },
-            'Financial Management & Accounting': {
-                keywords: ['finance', 'financial', 'accounting', 'budget', 'expense', 'revenue', 'cost', 'invoice', 'billing', 'payment', 'reconcile', 'audit', 'tax', 'payroll', 'bookkeeping', 'ledger', 'journal', 'balance', 'profit', 'loss', 'cash flow', 'finances', 'budgeting', 'invoicing', 'accounting', 'reconciliation']
-            },
-            'Inventory & Supply Chain': {
-                keywords: ['inventory', 'stock', 'supply', 'procurement', 'purchase', 'vendor', 'supplier', 'warehouse', 'shipping', 'receiving', 'logistics', 'distribution', 'order', 'fulfillment', 'tracking', 'management', 'chain', 'materials', 'goods', 'supplies', 'ordering', 'purchasing', 'procurement', 'stocking', 'warehousing']
-            },
-            'Research & Development': {
-                keywords: ['research', 'development', 'innovation', 'experiment', 'prototype', 'design', 'create', 'investigate', 'study', 'analysis', 'testing', 'evaluation', 'exploration', 'discovery', 'improvement', 'solution', 'technology', 'methodology', 'approach', 'findings', 'researching', 'developing', 'innovating', 'experimenting', 'designing']
-            },
-            'Marketing & Social Media': {
-                keywords: ['marketing', 'promote', 'campaign', 'social media', 'content', 'brand', 'advertising', 'seo', 'digital', 'online', 'website', 'blog', 'newsletter', 'email marketing', 'analytics', 'engagement', 'audience', 'lead', 'conversion', 'roi', 'promoting', 'campaigns', 'branding', 'advertising', 'content creation']
-            },
-            'Lead Generation & Prospecting': {
-                keywords: ['lead', 'prospect', 'prospecting', 'outreach', 'cold call', 'cold email', 'sales funnel', 'pipeline', 'qualify', 'lead generation', 'business development', 'networking', 'referral', 'crm', 'contact', 'reach out', 'follow up', 'nurture', 'conversion', 'leads', 'prospects', 'generating', 'qualifying', 'outreaching']
-            },
-            'Talent Acquisition': {
-                keywords: ['recruit', 'recruiting', 'hiring', 'talent', 'candidate', 'interview', 'resume', 'cv', 'job posting', 'sourcing', 'headhunt', 'talent acquisition', 'hr', 'human resources', 'screening', 'onsite', 'reference check', 'offer', 'negotiate', 'recruitment', 'candidates', 'interviewing', 'sourcing', 'screening']
-            },
-            'Onboarding': {
-                keywords: ['onboard', 'onboarding', 'orientation', 'new hire', 'training', 'induction', 'welcome', 'setup', 'introduction', 'first day', 'new employee', 'integration', 'acclimate', 'familiarize', 'new hires', 'orientations', 'introductions', 'welcoming', 'integrating']
-            },
-            'Customer/User Insights': {
-                keywords: ['insight', 'feedback', 'survey', 'analytics', 'user research', 'customer research', 'interview', 'focus group', 'usability', 'behavior', 'satisfaction', 'nps', 'testimonial', 'review', 'observation', 'journey map', 'persona', 'segment', 'insights', 'researching', 'surveying', 'interviewing', 'analyzing']
+                keywords: ['customer', 'client', 'support', 'help', 'service', 'assist', 'resolve', 'issue', 'problem', 'complaint', 'inquiry', 'ticket', 'case', 'troubleshoot', 'satisfaction', 'feedback', 'escalation', 'follow-up', 'retention', 'relationship']
             }
         };
 
-        // Initialize Supabase client
+        // Initialize Supabase
         let supabase = null;
         try {
-            if (typeof window.supabase !== 'undefined' && APP_CONFIG.supabase.url !== 'https://your-project.supabase.co') {
-                supabase = window.supabase.createClient(APP_CONFIG.supabase.url, APP_CONFIG.supabase.anonKey);
-            }
+            supabase = window.supabase.createClient(APP_CONFIG.supabase.url, APP_CONFIG.supabase.anonKey);
         } catch (error) {
             console.log('Supabase not configured, running in demo mode');
         }
@@ -1073,6 +740,7 @@
         let usageCount = 5;
         let currentAuthMode = 'signup';
         let currentAnalysis = null;
+        let progressInterval = null;
 
         // DOM Elements
         const formSection = document.getElementById('form-section');
@@ -1082,7 +750,6 @@
         const backBtn = document.getElementById('back-btn');
         const authModal = document.getElementById('auth-modal');
         const authForm = document.getElementById('auth-form');
-        const usageInfo = document.getElementById('usage-info');
         const charCount = document.getElementById('char-count');
         const jobDuties = document.getElementById('jobDuties');
         const authButtons = document.getElementById('auth-buttons');
@@ -1097,12 +764,9 @@
         async function initializeApp() {
             await loadUserSession();
             updateUI();
-            await loadCategoryStats();
             
-            // Set up auth state listener if Supabase is available
             if (supabase) {
                 supabase.auth.onAuthStateChange((event, session) => {
-                    console.log('Auth event:', event);
                     if (session?.user) {
                         handleAuthSuccess(session.user);
                     } else {
@@ -1113,13 +777,12 @@
         }
 
         async function loadUserSession() {
-            // Try to get current session from Supabase
             if (supabase) {
                 try {
                     const { data: { session } } = await supabase.auth.getSession();
                     if (session?.user) {
                         currentUser = session.user;
-                        usageCount = 999; // Unlimited for authenticated users
+                        usageCount = 999;
                         return;
                     }
                 } catch (error) {
@@ -1127,7 +790,6 @@
                 }
             }
             
-            // Fallback to localStorage
             const savedUser = localStorage.getItem('jobs2course_user');
             const savedUsage = localStorage.getItem('jobs2course_usage');
             
@@ -1144,21 +806,14 @@
         }
 
         function setupEventListeners() {
-            // Character counter
             jobDuties.addEventListener('input', function() {
                 charCount.textContent = this.value.length;
             });
 
-            // Form submission
             jobForm.addEventListener('submit', handleJobAnalysis);
-            
-            // Navigation
             backBtn.addEventListener('click', showFormSection);
-            
-            // Auth form
             authForm.addEventListener('submit', handleAuth);
             
-            // Modal close
             authModal.addEventListener('click', function(e) {
                 if (e.target === authModal) hideAuthModal();
             });
@@ -1189,95 +844,256 @@
             }
         }
 
-        async function loadCategoryStats() {
-            const container = document.getElementById('categoryStats');
+        // Progress Indicators
+        function showAnalysisLoading() {
+            const messages = [
+                "Analyzing your job duties...",
+                "Identifying efficiency opportunities...",
+                "Generating personalized strategies...",
+                "Finalizing recommendations..."
+            ];
             
-            if (!supabase) {
-                container.innerHTML = `
-                    <div class="category-item">
-                        <div class="category-name">📊 Marketing & Sales</div>
-                        <div class="category-count">12 discussions</div>
-                    </div>
-                    <div class="category-item">
-                        <div class="category-name">💻 Technology</div>
-                        <div class="category-count">18 discussions</div>
-                    </div>
-                    <div class="category-item">
-                        <div class="category-name">🏥 Healthcare</div>
-                        <div class="category-count">8 discussions</div>
-                    </div>
-                    <div class="category-item">
-                        <div class="category-name">📚 Education</div>
-                        <div class="category-count">15 discussions</div>
-                    </div>
-                `;
+            let currentMessage = 0;
+            
+            const updateMessage = () => {
+                analyzeBtn.innerHTML = `<div class="spinner"></div> <span>${messages[currentMessage]}</span>`;
+                currentMessage = (currentMessage + 1) % messages.length;
+            };
+            
+            updateMessage();
+            analyzeBtn.disabled = true;
+            progressInterval = setInterval(updateMessage, 1500);
+        }
+
+        function hideAnalysisLoading() {
+            if (progressInterval) {
+                clearInterval(progressInterval);
+                progressInterval = null;
+            }
+            analyzeBtn.innerHTML = '<span>Analyze My Job & Get Efficiency Strategies</span>';
+            analyzeBtn.disabled = false;
+        }
+
+        // Job Analysis - AI First with Fallback
+        async function handleJobAnalysis(e) {
+            e.preventDefault();
+            
+            const industry = document.getElementById('industry').value;
+            const jobTitle = document.getElementById('jobTitle').value.trim();
+            const duties = document.getElementById('jobDuties').value.trim();
+
+            if (!industry || !jobTitle || !duties) {
+                alert('Please fill in all required fields');
                 return;
             }
 
+            if (!currentUser && usageCount <= 0) {
+                showAuthModal('signup');
+                return;
+            }
+
+            showAnalysisLoading();
+
             try {
-                const { data: categoryData, error } = await supabase
-                    .from('comments')
-                    .select('job_category')
-                    .eq('approved', true);
-
-                if (error) throw error;
-
-                const categoryCounts = {};
-                categoryData.forEach(comment => {
-                    const category = comment.job_category;
-                    categoryCounts[category] = (categoryCounts[category] || 0) + 1;
-                });
-
-                const sortedCategories = Object.entries(categoryCounts)
-                    .sort(([,a], [,b]) => b - a)
-                    .slice(0, 6);
-
-                if (sortedCategories.length === 0) {
-                    container.innerHTML = `
-                        <div class="category-item">
-                            <div class="category-name">🚀 Be the first!</div>
-                            <div class="category-count">Share your experience to start discussions</div>
-                        </div>
-                    `;
-                } else {
-                    container.innerHTML = sortedCategories.map(([category, count]) => {
-                        const emoji = getCategoryEmoji(category);
-                        return `
-                            <div class="category-item" onclick="showCategoryDiscussion('${category}')">
-                                <div class="category-name">${emoji} ${category}</div>
-                                <div class="category-count">${count} discussion${count !== 1 ? 's' : ''}</div>
-                            </div>
-                        `;
-                    }).join('');
+                const analysis = await analyzeJobDuties(industry, jobTitle, duties);
+                
+                if (!currentUser) {
+                    usageCount--;
+                    localStorage.setItem('jobs2course_usage', usageCount.toString());
+                    updateUsageDisplay();
                 }
 
+                displayResults(analysis, jobTitle, industry);
+                showResultsSection();
+                
             } catch (error) {
-                console.error('Error loading category stats:', error);
+                console.error('Analysis error:', error);
+                alert('Analysis failed. Please try again.');
+            } finally {
+                hideAnalysisLoading();
             }
         }
 
-        function getCategoryEmoji(category) {
-            const emojiMap = {
-                'Documentation & Report Writing': '📝',
-                'Data Analysis & Processing': '📊',
-                'Communication & Email Management': '✉️',
-                'Customer Service & Support': '🤝',
-                'Project Management & Planning': '📋',
-                'Training & Education': '🎓',
-                'Quality Assurance & Testing': '✅',
-                'Financial Management & Accounting': '💰',
-                'Inventory & Supply Chain': '📦',
-                'Research & Development': '🔬',
-                'Marketing & Social Media': '📢',
-                'Lead Generation & Prospecting': '🎯',
-                'Talent Acquisition': '👥',
-                'Onboarding': '🚀',
-                'Customer/User Insights': '💡'
-            };
-            return emojiMap[category] || '💼';
+        async function analyzeJobDuties(industry, jobTitle, duties) {
+            try {
+                // Try AI analysis first
+                const { data, error } = await supabase.functions.invoke('enhance-job-analysis', {
+                    body: { industry, jobTitle, duties }
+                });
+
+                if (error) throw error;
+
+                // Parse AI response
+                const aiResponse = data.choices[0].message.content;
+                const parsed = JSON.parse(aiResponse);
+                
+                if (parsed.strategies && parsed.strategies.length > 0) {
+                    return {
+                        strategies: parsed.strategies.map(s => ({
+                            title: s.title,
+                            description: s.description,
+                            tools: s.tools,
+                            setupTime: s.setup_time,
+                            weeklySavings: s.weekly_savings,
+                            efficiencyGain: s.efficiency_gain,
+                            steps: s.steps,
+                            quickWin: s.quick_win
+                        })),
+                        source: 'ai',
+                        industry,
+                        jobTitle,
+                        duties
+                    };
+                }
+                
+                throw new Error('AI response invalid');
+                
+            } catch (error) {
+                console.log('AI failed, using fallback:', error);
+                
+                // Fallback to job library matching
+                const fallbackStrategies = extractTasksFromDuties(duties);
+                
+                return {
+                    strategies: fallbackStrategies,
+                    source: 'fallback',
+                    industry,
+                    jobTitle,
+                    duties,
+                    noMatches: fallbackStrategies.length === 0
+                };
+            }
         }
 
-        // Auth Modal Functions
+        function extractTasksFromDuties(duties) {
+            if (!duties || duties.trim().length === 0) return [];
+
+            const inputText = duties.toLowerCase();
+            const categoryScores = {};
+
+            for (const [categoryName, categoryData] of Object.entries(taskCategories)) {
+                let score = 0;
+                const keywords = categoryData.keywords;
+                
+                for (const keyword of keywords) {
+                    const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi');
+                    const matches = (inputText.match(regex) || []).length;
+                    score += matches;
+                }
+                
+                if (score > 0) {
+                    categoryScores[categoryName] = score;
+                }
+            }
+
+            const sortedCategories = Object.entries(categoryScores)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 3)
+                .map(([categoryName]) => ({
+                    title: `AI Tools for ${categoryName}`,
+                    description: `Use AI to streamline your ${categoryName.toLowerCase()} tasks and save significant time each week.`,
+                    tools: "ChatGPT, Claude, or Gemini",
+                    setupTime: "20-30 minutes",
+                    weeklySavings: "2-4 hours per week",
+                    efficiencyGain: "25%",
+                    steps: [
+                        "Identify repetitive tasks in this category",
+                        "Create AI prompts for common scenarios",  
+                        "Test and refine your prompts",
+                        "Build templates for reuse"
+                    ],
+                    quickWin: "Start with one repetitive task and create an AI prompt for it today"
+                }));
+
+            return sortedCategories;
+        }
+
+        function displayResults(analysis, jobTitle, industry) {
+            document.getElementById('results-title').textContent = 
+                analysis.source === 'ai' ? 
+                `AI Efficiency Analysis for ${jobTitle}` : 
+                `Efficiency Strategies for ${jobTitle}`;
+                
+            document.getElementById('results-subtitle').textContent = 
+                `${analysis.source === 'ai' ? 'AI-generated' : 'Curated'} strategies based on your ${industry} workflows`;
+            
+            const container = document.getElementById('strategies-container');
+            
+            if (analysis.noMatches) {
+                container.innerHTML = `
+                    <div class="no-match-message">
+                        <h3>No Specific Matches Found</h3>
+                        <p>We couldn't find specific efficiency strategies for your tasks, but we're working on expanding our coverage.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = analysis.strategies.map((strategy, index) => `
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <h3>${strategy.title}</h3>
+                            <p style="color: #6b7280; margin-top: 0.5rem;">${strategy.description}</p>
+                        </div>
+                        <div class="strategy-content">
+                            <div class="level-card">
+                                <div class="level-header">
+                                    <span style="font-size: 1.25rem;">⚡</span>
+                                    <h4>Implementation Details</h4>
+                                    <span class="gain-badge">+${strategy.efficiencyGain || '25%'}</span>
+                                </div>
+                                <div style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.75rem;">
+                                    <strong>Tools:</strong> ${strategy.tools}<br>
+                                    <strong>Setup:</strong> ${strategy.setupTime} | 
+                                    <strong>Weekly Savings:</strong> ${strategy.weeklySavings}
+                                </div>
+                                <button class="quick-start-btn" onclick="toggleQuickStart(this)">
+                                    Implementation Steps ▼
+                                </button>
+                                <div class="quick-start-content">
+                                    ${strategy.steps ? strategy.steps.map(step => `<strong>•</strong> ${step}`).join('<br>') : 'Implementation guide will be provided.'}
+                                    ${strategy.quickWin ? `<br><br><strong>Quick Win:</strong> ${strategy.quickWin}` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Show monetization CTA
+            const totalStrategies = analysis.strategies.length;
+            if (totalStrategies > 0) {
+                document.getElementById('monetization-title').textContent = 
+                    `You've unlocked ${totalStrategies} efficiency improvements!`;
+                document.querySelector('.monetization-cta').style.display = 'block';
+            }
+        }
+
+        function toggleQuickStart(button) {
+            const content = button.nextElementSibling;
+            const isVisible = content.style.display !== 'none';
+            
+            if (isVisible) {
+                content.style.display = 'none';
+                button.innerHTML = 'Implementation Steps ▼';
+            } else {
+                content.style.display = 'block';
+                button.innerHTML = 'Implementation Steps ▲';
+            }
+        }
+
+        // UI Navigation
+        function showFormSection() {
+            resultsSection.classList.add('hidden');
+            formSection.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showResultsSection() {
+            formSection.classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        // Auth Functions (keeping existing auth logic)
         function showAuthModal(mode = 'signup') {
             currentAuthMode = mode;
             updateAuthModal();
@@ -1316,7 +1132,6 @@
             clearAuthMessages();
         }
 
-        // Authentication Functions
         async function handleAuth(e) {
             e.preventDefault();
             
@@ -1343,7 +1158,6 @@
                         result = await handleSupabaseLogin(email, password);
                     }
                 } else {
-                    // Demo mode - simulate auth
                     result = await simulateAuth(email, password);
                 }
 
@@ -1352,7 +1166,6 @@
                         showAuthMessage('Please check your email and click the confirmation link', 'success');
                     } else {
                         hideAuthModal();
-                        showAuthMessage('Success! You now have unlimited access.', 'success');
                     }
                 } else {
                     showAuthMessage(result.error, 'error');
@@ -1372,11 +1185,7 @@
                 const { data, error } = await supabase.auth.signUp({
                     email,
                     password,
-                    options: {
-                        data: {
-                            signup_source: 'jobs2course'
-                        }
-                    }
+                    options: { data: { signup_source: 'jobs2course' } }
                 });
 
                 if (error) throw error;
@@ -1386,11 +1195,10 @@
                     user: data.user,
                     needsVerification: !data.session
                 };
-
             } catch (error) {
                 return {
                     success: false,
-                    error: getReadableError(error.message)
+                    error: error.message
                 };
             }
         }
@@ -1398,27 +1206,18 @@
         async function handleSupabaseLogin(email, password) {
             try {
                 const { data, error } = await supabase.auth.signInWithPassword({
-                    email,
-                    password
+                    email, password
                 });
 
                 if (error) throw error;
 
-                return {
-                    success: true,
-                    user: data.user
-                };
-
+                return { success: true, user: data.user };
             } catch (error) {
-                return {
-                    success: false,
-                    error: getReadableError(error.message)
-                };
+                return { success: false, error: error.message };
             }
         }
 
         async function simulateAuth(email, password) {
-            // Demo mode - simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500));
             
             const user = {
@@ -1428,50 +1227,21 @@
             };
 
             handleAuthSuccess(user);
-            
-            return {
-                success: true,
-                user: user
-            };
+            return { success: true, user: user };
         }
 
         function handleAuthSuccess(user) {
-            console.log('User authenticated:', user.email);
-            
             currentUser = user;
             usageCount = 999;
             
-            // Store user data
             localStorage.setItem('jobs2course_user', JSON.stringify({
                 id: user.id,
                 email: user.email,
                 authenticated_at: Date.now()
             }));
             
-            // Clear usage restrictions
             localStorage.removeItem('jobs2course_usage');
-            
             updateUI();
-            loadCategoryStats();
-
-            // Handle pending comment
-            const pendingComment = localStorage.getItem('pendingComment');
-            if (pendingComment) {
-                try {
-                    const comment = JSON.parse(pendingComment);
-                    localStorage.removeItem('pendingComment');
-                    
-                    setTimeout(() => {
-                        const textArea = document.getElementById(`comment-text-${comment.index}`);
-                        if (textArea) {
-                            textArea.value = comment.commentText;
-                            submitComment(comment.index, comment.category, comment.industry, comment.jobTitle);
-                        }
-                    }, 500);
-                } catch (error) {
-                    console.error('Error processing pending comment:', error);
-                }
-            }
         }
 
         async function handleLogout() {
@@ -1482,524 +1252,19 @@
                 handleAuthLogout();
             } catch (error) {
                 console.error('Logout error:', error);
-                // Still proceed with local logout
                 handleAuthLogout();
             }
         }
 
         function handleAuthLogout() {
-            console.log('User logged out');
-            
             currentUser = null;
             usageCount = 5;
             
-            // Reset to free tier
             localStorage.removeItem('jobs2course_user');
             localStorage.setItem('jobs2course_usage', '5');
-            
             updateUI();
         }
 
-        // Task Extraction - Using improved keyword matching from your live version
-        function extractTasksFromDuties(duties) {
-            if (!duties || duties.trim().length === 0) {
-                return [];
-            }
-
-            const inputText = duties.toLowerCase();
-            const categoryScores = {};
-
-            // Score each category based on keyword matches
-            for (const [categoryName, categoryData] of Object.entries(taskCategories)) {
-                let score = 0;
-                const keywords = categoryData.keywords;
-                
-                for (const keyword of keywords) {
-                    const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi');
-                    const matches = (inputText.match(regex) || []).length;
-                    score += matches;
-                }
-                
-                if (score > 0) {
-                    categoryScores[categoryName] = score;
-                }
-            }
-
-            // Sort categories by score and return top matches
-            const sortedCategories = Object.entries(categoryScores)
-                .sort(([,a], [,b]) => b - a)
-                .slice(0, 5) // Return top 5 matches
-                .map(([categoryName, score]) => ({
-                    name: categoryName,
-                    score: score,
-                    currentMethod: 'Current manual processes and workflows'
-                }));
-
-            console.log('Keyword matching results:', sortedCategories);
-            
-            return sortedCategories.length > 0 ? sortedCategories : [];
-        }
-
-        // Job Analysis Functions
-        async function handleJobAnalysis(e) {
-            e.preventDefault();
-            
-            const industry = document.getElementById('industry').value;
-            const jobTitle = document.getElementById('jobTitle').value.trim();
-            const duties = document.getElementById('jobDuties').value.trim();
-
-            if (!industry || !jobTitle || !duties) {
-                alert('Please fill in all required fields');
-                return;
-            }
-
-            if (!currentUser && usageCount <= 0) {
-                showAuthModal('signup');
-                return;
-            }
-
-            showAnalysisLoading();
-
-            try {
-                const analysis = await analyzeJobDuties(industry, jobTitle, duties);
-                currentAnalysis = analysis;
-                
-                if (!currentUser) {
-                    usageCount--;
-                    localStorage.setItem('jobs2course_usage', usageCount.toString());
-                    updateUsageDisplay();
-                }
-
-                displayResults(analysis, jobTitle, industry);
-                showResultsSection();
-
-                if (analysis.strategies && analysis.strategies.length > 0) {
-                    await loadCommentsForStrategies(analysis.strategies);
-                }
-                
-            } catch (error) {
-                console.error('Analysis error:', error);
-                alert('Analysis failed. Please try again.');
-            } finally {
-                hideAnalysisLoading();
-            }
-        }
-
-        async function analyzeJobDuties(industry, jobTitle, duties) {
-            // Step 1: Immediate keyword-based analysis
-            const matchedTasks = extractTasksFromDuties(duties);
-            let initialStrategies = [];
-            
-            if (typeof window.jobLibrary !== 'undefined' && matchedTasks.length > 0) {
-                initialStrategies = matchedTasks.map(task => {
-                    const categoryName = task.name;
-                    let strategyData = null;
-                    
-                    if (window.jobLibrary[categoryName]) {
-                        const categoryData = window.jobLibrary[categoryName];
-                        
-                        if (categoryData[industry]) {
-                            strategyData = categoryData[industry];
-                        } else if (categoryData.generic) {
-                            strategyData = categoryData.generic;
-                        } else {
-                            const firstVariant = Object.keys(categoryData)[0];
-                            strategyData = categoryData[firstVariant];
-                        }
-                    }
-                    
-                    if (strategyData) {
-                        return {
-                            task: categoryName,
-                            currentMethod: task.currentMethod,
-                            level1: strategyData,
-                            matchScore: task.score,
-                            isEnhancing: true // Flag to show this will be enhanced
-                        };
-                    }
-                    
-                    return null;
-                }).filter(strategy => strategy !== null);
-            }
-
-            // Return initial results immediately
-            const initialAnalysis = {
-                industry,
-                jobTitle,
-                duties,
-                strategies: initialStrategies,
-                noMatches: initialStrategies.length === 0
-            };
-            
-// Set currentAnalysis before AI enhancement
-currentAnalysis = initialAnalysis;
-            
-            // Step 2: Enhance with AI in background (don't await)
-            if (initialStrategies.length > 0) {
-                enhanceWithAI(initialAnalysis).catch(error => {
-                    console.error('AI enhancement failed:', error);
-                    // Continue with initial results if AI fails
-                });
-            }
-
-            return initialAnalysis;
-        }
-
-        function displayResults(analysis, jobTitle, industry) {
-            document.getElementById('results-title').textContent = `AI Efficiency Analysis for ${jobTitle}`;
-            document.getElementById('results-subtitle').textContent = `Personalized strategies based on your ${industry} workflows`;
-            
-            const container = document.getElementById('strategies-container');
-            
-            if (analysis.noMatches) {
-                container.innerHTML = `
-                    <div class="no-match-message">
-                        <h3>No Specific Matches Found</h3>
-                        <p>We don't have efficiency strategies for your specific tasks yet, but we're working on it.</p>
-                        <div class="submit-link">
-                            <strong>Help us improve:</strong> <a href="https://www.erinjacques.com/jobsimprovements" target="_blank">Submit your suggestions here</a>
-                        </div>
-                    </div>
-                `;
-            } else {
-                container.innerHTML = analysis.strategies.map((strategy, index) => `
-                    <div class="strategy-card">
-                        <div class="strategy-header">
-                            <h3>${strategy.task}</h3>
-                            <p style="color: #6b7280; margin-top: 0.5rem;">Current: ${strategy.currentMethod}</p>
-                        </div>
-                        <div class="strategy-content">
-                            <div class="level-card">
-                                <div class="level-header">
-                                    <span style="font-size: 1.25rem;">⚡</span>
-                                    <h4>Efficiency Strategy</h4>
-                                    <span class="gain-badge">+${strategy.level1.efficiencyGain || '25'}%</span>
-                                </div>
-                                <p style="font-size: 0.875rem; margin-bottom: 0.5rem;">${strategy.level1.description}</p>
-                                <div style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.75rem;">
-                                    <strong>Tools:</strong> ${strategy.level1.tools || 'AI-powered automation tools'}<br>
-                                    <strong>Setup:</strong> ${strategy.level1.setupTime || '30 minutes'} | 
-                                    <strong>Weekly Savings:</strong> ${strategy.level1.weeklySavings || '3-5 hours'}
-                                </div>
-                                <button class="quick-start-btn" onclick="toggleQuickStart(this)">
-                                    Quick Start Guide ▼
-                                </button>
-                                <div class="quick-start-content">
-                                    ${formatQuickStart(strategy.level1.quickGuide)}
-                                </div>
-
-                            </div>
-                            
-                            <!-- Comments Section -->
-                            <div class="comments-section" id="comments-${index}">
-                                <div class="comments-header">
-                                    💬 What others are saying about similar suggestions:
-                                </div>
-                                <div class="existing-comments" id="existing-comments-${index}">
-                                    <div style="text-align: center; color: #6b7280; font-size: 0.875rem; padding: 1rem;">
-                                        Loading comments...
-                                    </div>
-                                </div>
-                                <div class="add-comment-form">
-                                    <h4>Share your experience:</h4>
-                                    <div id="comment-form-${index}">
-                                        <textarea 
-                                            id="comment-text-${index}" 
-                                            placeholder="Did these suggestions work for you? Any additional tips to share?"
-                                            maxlength="1000"
-                                        ></textarea>
-                                        <button 
-                                            class="submit-comment-btn" 
-                                            onclick="submitComment(${index}, '${strategy.task}', '${analysis.industry}', '${analysis.jobTitle}')"
-                                        >
-                                            Share Feedback
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            const totalStrategies = analysis.strategies.length;
-            if (totalStrategies > 0) {
-                document.getElementById('monetization-title').textContent = 
-                    `You've unlocked ${totalStrategies} efficiency improvements!`;
-            }
-        }
-
-        // Comments Functions
-        async function loadCommentsForStrategies(strategies) {
-            for (let i = 0; i < strategies.length; i++) {
-                const strategy = strategies[i];
-                await loadCommentsForStrategy(i, strategy.task);
-            }
-        }
-
-        async function loadCommentsForStrategy(index, category) {
-            const commentsContainer = document.getElementById(`existing-comments-${index}`);
-            
-            if (!supabase) {
-                commentsContainer.innerHTML = getDemoComments(category);
-                return;
-            }
-
-            try {
-                const { data: comments, error } = await supabase
-                    .from('comments')
-                    .select('*')
-                    .eq('job_category', category)
-                    .eq('approved', true)
-                    .order('created_at', { ascending: false })
-                    .limit(5);
-
-                if (error) throw error;
-
-                if (comments.length === 0) {
-                    commentsContainer.innerHTML = `
-                        <div style="text-align: center; color: #6b7280; font-size: 0.875rem; padding: 1rem;">
-                            No comments yet. Be the first to share your experience!
-                        </div>
-                    `;
-                } else {
-                    commentsContainer.innerHTML = comments.map(comment => `
-                        <div class="comment-item">
-                            <div class="comment-header">
-                                <span class="comment-author">${maskEmail(comment.user_email)}</span>
-                                <span class="comment-date">${formatDate(comment.created_at)}</span>
-                            </div>
-                            <div class="comment-text">${escapeHtml(comment.comment_text)}</div>
-                        </div>
-                    `).join('');
-                }
-
-            } catch (error) {
-                console.error('Error loading comments:', error);
-                commentsContainer.innerHTML = `
-                    <div style="text-align: center; color: #ef4444; font-size: 0.875rem; padding: 1rem;">
-                        Unable to load comments
-                    </div>
-                `;
-            }
-        }
-
-        function getDemoComments(category) {
-            const demoComments = {
-                'Documentation & Report Writing': [
-                    {
-                        user_email: 'sarah.m@example.com',
-                        comment_text: 'The template approach saved me 2 hours per week! I created standard formats for all my reports.',
-                        created_at: '2024-01-15T10:30:00Z'
-                    }
-                ],
-                'Communication & Email Management': [
-                    {
-                        user_email: 'anna.k@work.com',
-                        comment_text: 'Email templates are a game changer! I cut my response time in half.',
-                        created_at: '2024-01-12T09:15:00Z'
-                    }
-                ]
-            };
-
-            const comments = demoComments[category] || [];
-            
-            if (comments.length === 0) {
-                return `
-                    <div style="text-align: center; color: #6b7280; font-size: 0.875rem; padding: 1rem;">
-                        No comments yet. Be the first to share your experience!
-                    </div>
-                `;
-            }
-
-            return comments.map(comment => `
-                <div class="comment-item">
-                    <div class="comment-header">
-                        <span class="comment-author">${maskEmail(comment.user_email)}</span>
-                        <span class="comment-date">${formatDate(comment.created_at)}</span>
-                    </div>
-                    <div class="comment-text">${escapeHtml(comment.comment_text)}</div>
-                </div>
-            `).join('');
-        }
-
-        async function submitComment(index, category, industry, jobTitle) {
-            const commentText = document.getElementById(`comment-text-${index}`).value.trim();
-            
-            if (!commentText) {
-                alert('Please enter a comment before submitting.');
-                return;
-            }
-
-            if (!currentUser) {
-                localStorage.setItem('pendingComment', JSON.stringify({
-                    index, category, industry, jobTitle, commentText
-                }));
-                showAuthModal('signup');
-                return;
-            }
-
-            const submitBtn = document.querySelector(`#comment-form-${index} .submit-comment-btn`);
-            const originalText = submitBtn.textContent;
-            
-            try {
-                submitBtn.textContent = 'Submitting...';
-                submitBtn.disabled = true;
-
-                // Get the AI strategy summary for context
-                let aiStrategySummary = '';
-                if (currentAnalysis && currentAnalysis.strategies && currentAnalysis.strategies[index]) {
-                    const strategy = currentAnalysis.strategies[index];
-                    if (strategy.aiEnhanced) {
-                        aiStrategySummary = strategy.level1.description.substring(0, 200) + '...';
-                    } else {
-                        aiStrategySummary = strategy.level1.description.substring(0, 200) + '...';
-                    }
-                }
-
-                if (supabase) {
-                    const { error } = await supabase
-                        .from('comments')
-                        .insert([{
-                            user_id: currentUser.id,
-                            user_email: currentUser.email,
-                            user_name: currentUser.user_metadata?.full_name || currentUser.email.split('@')[0],
-                            job_category: category,
-                            job_title: jobTitle,
-                            industry: industry,
-                            comment_text: commentText,
-                            ai_strategy_summary: aiStrategySummary, // Store AI context
-                            approved: false
-                        }]);
-
-                    if (error) throw error;
-                }
-
-                const formContainer = document.getElementById(`comment-form-${index}`);
-                formContainer.innerHTML = `
-                    <div class="comment-success">
-                        ✅ Thank you for sharing! Your comment is being reviewed and will appear soon.
-                    </div>
-                `;
-
-                await loadCategoryStats();
-
-            } catch (error) {
-                console.error('Error submitting comment:', error);
-                alert('Failed to submit comment. Please try again.');
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        }
-
-        // Utility functions
-        function maskEmail(email) {
-            if (!email || typeof email !== 'string') return 'Anonymous';
-            const [username, domain] = email.split('@');
-            if (!username || !domain) return 'Anonymous';
-            
-            if (username.length <= 2) {
-                return username[0] + '*@' + domain;
-            } else {
-                return username[0] + '*'.repeat(Math.min(3, username.length - 1)) + '@' + domain;
-            }
-        }
-
-        function formatDate(dateString) {
-            try {
-                const date = new Date(dateString);
-                const now = new Date();
-                const diffMs = now - date;
-                const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-                
-                if (diffDays === 0) return 'Today';
-                if (diffDays === 1) return 'Yesterday';
-                if (diffDays < 7) return `${diffDays} days ago`;
-                if (diffDays < 30) {
-                    const weeks = Math.floor(diffDays / 7);
-                    return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
-                }
-                return date.toLocaleDateString();
-            } catch (error) {
-                return 'Recently';
-            }
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        function formatQuickStart(text) {
-            if (!text) return 'Detailed implementation guide will be provided based on your specific tools and workflow.';
-            
-            return text.split('\n').map(line => {
-                if (line.match(/^\d+\./)) {
-                    return `<strong>${line}</strong>`;
-                }
-                return line;
-            }).join('<br>');
-        }
-
-        function toggleQuickStart(button) {
-            const content = button.nextElementSibling;
-            const isVisible = content.style.display !== 'none';
-            
-            if (isVisible) {
-                content.style.display = 'none';
-                button.innerHTML = 'Quick Start Guide ▼';
-            } else {
-                content.style.display = 'block';
-                button.innerHTML = 'Quick Start Guide ▲';
-            }
-        }
-
-        // UI Helper Functions
-        function showAnalysisLoading() {
-            analyzeBtn.innerHTML = '<div class="spinner"></div> <span>Analyzing your job duties...</span>';
-            analyzeBtn.disabled = true;
-        }
-
-        function hideAnalysisLoading() {
-            analyzeBtn.innerHTML = '<span>Analyze My Job & Get Efficiency Strategies</span>';
-            analyzeBtn.disabled = false;
-        }
-
-        function showFormSection() {
-            resultsSection.classList.add('hidden');
-            formSection.classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        function showResultsSection() {
-            formSection.classList.add('hidden');
-            resultsSection.classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        function showAuthMessage(message, type) {
-            const messagesContainer = document.getElementById('auth-messages');
-            messagesContainer.innerHTML = `<div class="${type}-message">${message}</div>`;
-        }
-
-        function clearAuthMessages() {
-            document.getElementById('auth-messages').innerHTML = '';
-        }
-
-        function getReadableError(errorMessage) {
-            const errorMap = {
-                'Invalid login credentials': 'Invalid email or password',
-                'Email not confirmed': 'Please check your email and click the confirmation link',
-                'User already registered': 'An account with this email already exists',
-                'Password should be at least 6 characters': 'Password must be at least 6 characters',
-                'Unable to validate email address': 'Please enter a valid email address'
-            };
-            
-            return errorMap[errorMessage] || 'Authentication failed. Please try again.';
-        }
-
-        // Google sign-in function - Using the working implementation from your live version
         async function handleGoogleSignIn() {
             try {
                 if (!supabase) {
@@ -2009,9 +1274,7 @@ currentAnalysis = initialAnalysis;
 
                 const { data, error } = await supabase.auth.signInWithOAuth({
                     provider: 'google',
-                    options: {
-                        redirectTo: 'https://jobs2course.com'
-                    }
+                    options: { redirectTo: window.location.origin }
                 });
 
                 if (error) throw error;
@@ -2022,331 +1285,13 @@ currentAnalysis = initialAnalysis;
             }
         }
 
-        // AI Enhancement Functions
-        async function enhanceWithAI(analysis) {
-            try {
-                // Show enhancement message to user
-                showAIEnhancementMessage();
-                
-                // Prepare AI prompt with job library examples
-                const aiPrompt = buildEnhancementPrompt(analysis);
-                
-                // Call OpenRouter API
-                const aiResponse = await callOpenRouterAPI(aiPrompt);
-                
-                // Parse and apply AI enhancements
-                const enhancedStrategies = parseAIResponse(aiResponse, analysis);
-                
-                // Update the displayed results
-                updateResultsWithAI(enhancedStrategies);
-                
-                // Store current analysis for comment context
-                currentAnalysis = {
-                    ...analysis,
-                    strategies: enhancedStrategies,
-                    aiEnhanced: true
-                };
-                
-            } catch (error) {
-                console.error('AI enhancement error:', error);
-                hideAIEnhancementMessage();
-            }
+        function showAuthMessage(message, type) {
+            const messagesContainer = document.getElementById('auth-messages');
+            messagesContainer.innerHTML = `<div class="${type}-message">${message}</div>`;
         }
 
-        function buildEnhancementPrompt(analysis) {
-            const { industry, jobTitle, duties, strategies } = analysis;
-            
-            // Include relevant job library examples as context
-            const exampleStrategies = strategies.map(strategy => {
-                const categoryData = window.jobLibrary[strategy.task];
-                if (categoryData && categoryData[industry]) {
-                    return `${strategy.task} (${industry}): ${categoryData[industry].description}`;
-                }
-                return null;
-            }).filter(Boolean).join('\n\n');
-
-            return `You are an expert job efficiency analyst. Based on the user's specific role and responsibilities, enhance these initial strategy recommendations with personalized insights.
-
-USER CONTEXT:
-- Industry: ${industry}
-- Job Title: ${jobTitle}
-- Key Responsibilities: ${duties}
-
-EXAMPLE STRATEGIES FROM OUR LIBRARY:
-${exampleStrategies}
-
-MATCHED CATEGORIES: ${strategies.map(s => s.task).join(', ')}
-
-Please provide enhanced, personalized strategies that:
-1. Address their specific workflow challenges mentioned in responsibilities
-2. Include industry-appropriate compliance considerations
-3. Suggest specific tools that match their context
-4. Provide realistic time estimates based on their role complexity
-5. Include actionable next steps tailored to their situation
-
-Format your response as JSON with this structure:
-{
-  "strategies": [
-    {
-      "category": "Category Name",
-      "personalizedDescription": "Enhanced description based on their specific role...",
-      "recommendedTools": "Specific tools for their situation...",
-      "customSetupTime": "Realistic time estimate...",
-      "personalizedQuickGuide": "Step-by-step guide tailored to their workflow...",
-      "complianceNotes": "Industry-specific compliance considerations..."
-    }
-  ]
-}
-
-Keep responses professional, practical, and actionable. Focus on value they can implement immediately.`;
-        }
-
-        async function callOpenRouterAPI(prompt) {
-            // Use Supabase Edge Function instead of direct API call
-            const { data, error } = await supabase.functions.invoke('enhance-job-analysis', {
-                body: {
-                    industry: currentAnalysis.industry,
-                    jobTitle: currentAnalysis.jobTitle,
-                    duties: currentAnalysis.duties,
-                    strategies: currentAnalysis.strategies
-                }
-            });
-
-            if (error) {
-                throw new Error(`Supabase function error: ${error.message}`);
-            }
-
-            if (data.error) {
-                throw new Error(`AI API error: ${data.error}`);
-            }
-
-            return data.choices[0].message.content;
-        }
-
-        function parseAIResponse(aiResponse, originalAnalysis) {
-            try {
-                // Try to parse JSON response
-                const parsed = JSON.parse(aiResponse);
-                
-                return originalAnalysis.strategies.map(originalStrategy => {
-                    const aiEnhancement = parsed.strategies.find(s => 
-                        s.category === originalStrategy.task
-                    );
-                    
-                    if (aiEnhancement) {
-                        return {
-                            ...originalStrategy,
-                            level1: {
-                                ...originalStrategy.level1,
-                                description: aiEnhancement.personalizedDescription,
-                                tools: aiEnhancement.recommendedTools,
-                                setupTime: aiEnhancement.customSetupTime,
-                                quickGuide: aiEnhancement.personalizedQuickGuide,
-                                complianceNotes: aiEnhancement.complianceNotes
-                            },
-                            aiEnhanced: true
-                        };
-                    }
-                    
-                    return originalStrategy;
-                });
-                
-            } catch (error) {
-                console.error('Failed to parse AI response:', error);
-                // Return original strategies if parsing fails
-                return originalAnalysis.strategies;
-            }
-        }
-
-        function showAIEnhancementMessage() {
-            const enhancementNotice = document.createElement('div');
-            enhancementNotice.id = 'ai-enhancement-notice';
-            enhancementNotice.innerHTML = `
-                <div style="background: #f0f9ff; border: 1px solid #0ea5e9; border-radius: 0.5rem; padding: 1rem; margin: 1rem 0; text-align: center;">
-                    <div style="color: #0c4a6e; font-weight: 500; margin-bottom: 0.5rem;">✨ Personalizing your strategies...</div>
-                    <div style="color: #0369a1; font-size: 0.875rem;">Analyzing your specific role for customized recommendations</div>
-                </div>
-            `;
-            
-            const strategiesContainer = document.getElementById('strategies-container');
-            strategiesContainer.insertBefore(enhancementNotice, strategiesContainer.firstChild);
-        }
-
-        function hideAIEnhancementMessage() {
-            const notice = document.getElementById('ai-enhancement-notice');
-            if (notice) {
-                notice.remove();
-            }
-        }
-
-        function updateResultsWithAI(enhancedStrategies) {
-            // Hide the enhancement message
-            hideAIEnhancementMessage();
-            
-            // Update each strategy card with AI-enhanced content
-            enhancedStrategies.forEach((strategy, index) => {
-                updateStrategyCard(index, strategy);
-            });
-
-            // Add enhancement success message
-            const successNotice = document.createElement('div');
-            successNotice.innerHTML = `
-                <div style="background: #d1fae5; border: 1px solid #10b981; border-radius: 0.5rem; padding: 1rem; margin: 1rem 0; text-align: center; animation: fadeIn 0.5s;">
-                    <div style="color: #065f46; font-weight: 500;">🎯 Strategies personalized for your specific role!</div>
-                </div>
-            `;
-            
-            const strategiesContainer = document.getElementById('strategies-container');
-            strategiesContainer.insertBefore(successNotice, strategiesContainer.firstChild);
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                successNotice.remove();
-            }, 5000);
-        }
-
-        function updateStrategyCard(index, strategy) {
-            const cardContent = document.querySelector(`#strategies-container .strategy-card:nth-child(${index + 1}) .level-card`);
-            if (!cardContent) return;
-            
-            // Update the strategy content with AI enhancements
-            const levelHeader = cardContent.querySelector('.level-header');
-            const description = levelHeader.nextElementSibling;
-            const details = description.nextElementSibling;
-            const quickGuide = cardContent.querySelector('.quick-start-content');
-            
-            if (description) {
-                description.textContent = strategy.level1.description;
-                description.style.animation = 'fadeIn 0.5s';
-            }
-            
-            if (details) {
-                details.innerHTML = `
-                    <strong>Tools:</strong> ${strategy.level1.tools || 'AI-powered automation tools'}<br>
-                    <strong>Setup:</strong> ${strategy.level1.setupTime || '30 minutes'} | 
-                    <strong>Weekly Savings:</strong> ${strategy.level1.weeklySavings || '3-5 hours'}
-                    ${strategy.level1.complianceNotes ? `<br><strong>Compliance:</strong> ${strategy.level1.complianceNotes}` : ''}
-                `;
-                details.style.animation = 'fadeIn 0.5s';
-            }
-            
-            if (quickGuide) {
-                quickGuide.innerHTML = formatQuickStart(strategy.level1.quickGuide);
-            }
-        }
-        async function showCategoryDiscussion(category) {
-            console.log('Showing discussions for category:', category);
-            
-            // Hide main sections and show category discussion view
-            formSection.classList.add('hidden');
-            resultsSection.classList.add('hidden');
-            document.getElementById('category-discussion-view').style.display = 'block';
-            
-            // Update title
-            document.getElementById('category-discussion-title').textContent = `${getCategoryEmoji(category)} ${category} Discussions`;
-            
-            // Load comments for this category
-            await loadCategoryDiscussionComments(category);
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        async function loadCategoryDiscussionComments(category) {
-            const commentsContainer = document.getElementById('category-discussion-comments');
-            
-            commentsContainer.innerHTML = '<div style="text-align: center; color: #6b7280; padding: 2rem;">Loading discussions...</div>';
-            
-            if (!supabase) {
-                // Demo mode - show sample comments
-                const demoComments = getDemoCategoryComments(category);
-                displayCategoryComments(demoComments);
-                return;
-            }
-
-            try {
-                const { data: comments, error } = await supabase
-                    .from('comments')
-                    .select('*')
-                    .eq('job_category', category)
-                    .eq('approved', true)
-                    .order('created_at', { ascending: false });
-
-                if (error) throw error;
-
-                displayCategoryComments(comments);
-
-            } catch (error) {
-                console.error('Error loading category comments:', error);
-                commentsContainer.innerHTML = `
-                    <div style="text-align: center; color: #ef4444; padding: 2rem;">
-                        Unable to load discussions
-                    </div>
-                `;
-            }
-        }
-
-        function displayCategoryComments(comments) {
-            const commentsContainer = document.getElementById('category-discussion-comments');
-            
-            if (comments.length === 0) {
-                commentsContainer.innerHTML = `
-                    <div style="text-align: center; color: #6b7280; padding: 2rem;">
-                        No discussions yet. Be the first to share your experience by analyzing your job!
-                    </div>
-                `;
-                return;
-            }
-
-            commentsContainer.innerHTML = comments.map(comment => `
-                <div class="category-comment-item">
-                    ${comment.ai_strategy_summary ? `
-                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.375rem; padding: 0.75rem; margin-bottom: 0.75rem; border-left: 3px solid #3b82f6;">
-                            <div style="font-size: 0.8rem; color: #475569; font-weight: 500; margin-bottom: 0.25rem;">AI Strategy Context:</div>
-                            <div style="font-size: 0.8rem; color: #64748b; font-style: italic;">"${comment.ai_strategy_summary}"</div>
-                        </div>
-                    ` : ''}
-                    <div class="category-comment-meta">
-                        <span class="category-comment-author">${maskEmail(comment.user_email)}</span>
-                        <span class="category-comment-job">${comment.job_title} - ${comment.industry}</span>
-                        <span class="category-comment-date">${formatDate(comment.created_at)}</span>
-                    </div>
-                    <div class="category-comment-text">${escapeHtml(comment.comment_text)}</div>
-                </div>
-            `).join('');
-        }
-
-        function getDemoCategoryComments(category) {
-            const demoData = {
-                'Documentation & Report Writing': [
-                    {
-                        user_email: 'sarah.m@example.com',
-                        job_title: 'Medical Assistant',
-                        industry: 'Healthcare',
-                        comment_text: 'The template approach saved me 2 hours per week! I created standard formats for all my reports and now documentation is so much faster.',
-                        created_at: '2024-01-15T10:30:00Z'
-                    },
-                    {
-                        user_email: 'mike.j@company.com',
-                        job_title: 'Project Manager',
-                        industry: 'Technology',
-                        comment_text: 'Using AI to generate first drafts of status reports has been a game changer. I just review and adjust instead of starting from scratch.',
-                        created_at: '2024-01-10T14:20:00Z'
-                    }
-                ]
-            };
-
-            return demoData[category] || [];
-        }
-
-        function showMainView() {
-            // Hide category discussion view and show main form section
-            document.getElementById('category-discussion-view').style.display = 'none';
-            formSection.classList.remove('hidden');
-            resultsSection.classList.add('hidden');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
+        function clearAuthMessages() {
+            document.getElementById('auth-messages').innerHTML = '';
         }
 
         // Make functions globally available
