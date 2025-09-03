@@ -310,21 +310,24 @@
         }
         
         .quick-start-btn {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid #3b82f6;
-            color: #3b82f6;
-            padding: 0.375rem 0.75rem;
-            border-radius: 0.375rem;
-            font-size: 0.75rem;
-            font-weight: 500;
+            background: #3b82f6;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 0.875rem;
+            font-weight: 600;
             cursor: pointer;
-            margin-top: 0.75rem;
+            margin-top: 1rem;
             transition: all 0.2s;
             width: 100%;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
         }
         
         .quick-start-btn:hover {
-            background: rgba(59, 130, 246, 0.2);
+            background: #2563eb;
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+            transform: translateY(-1px);
         }
         
         .quick-start-content {
@@ -1045,7 +1048,7 @@
                                     <strong>Weekly Savings:</strong> ${strategy.weeklySavings}
                                 </div>
                                 <button class="quick-start-btn" onclick="toggleQuickStart(this)">
-                                    Follow These AI Steps ▼
+                                    Click Here for AI Steps
                                 </button>
                                 <div class="quick-start-content">
                                     ${formatStepsWithPrompts(strategy.steps)}
@@ -1097,10 +1100,10 @@
             
             if (isVisible) {
                 content.style.display = 'none';
-                button.innerHTML = 'Follow These AI Steps ▼';
+                button.innerHTML = 'Click Here for AI Steps';
             } else {
                 content.style.display = 'block';
-                button.innerHTML = 'Follow These AI Steps ▲';
+                button.innerHTML = 'Hide AI Steps';
             }
         }
 
