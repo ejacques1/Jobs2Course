@@ -333,9 +333,42 @@
             background: rgba(255, 255, 255, 0.8);
             border-radius: 0.375rem;
             font-size: 0.8rem;
-            line-height: 1.4;
+            line-height: 1.6;
             border-left: 3px solid #3b82f6;
             display: none;
+        }
+        
+        .quick-start-content .step-item {
+            margin-bottom: 1rem;
+        }
+        
+        .quick-start-content .step-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .quick-start-content .step-number {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 600;
+        }
+        
+        .quick-start-content .step-content {
+            margin-left: 1rem;
+            display: block;
+            margin-top: 0.25rem;
+        }
+        
+        .prompt-text {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            display: block;
+            color: #0c4a6e;
         }
         
         .no-match-message {
@@ -378,32 +411,6 @@
             font-size: 1.125rem;
             margin-bottom: 1.5rem;
             opacity: 0.9;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .cta-btn {
-            background: white;
-            color: #3b82f6;
-            padding: 0.75rem 2rem;
-            border-radius: 0.5rem;
-            border: none;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cta-btn:hover {
-            background: #f3f4f6;
-            transform: translateY(-2px);
         }
         
         .auth-modal {
@@ -542,11 +549,6 @@
                 flex-direction: column;
                 text-align: center;
             }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
         }
     </style>
 </head>
@@ -608,7 +610,7 @@
                         <textarea 
                             id="jobDuties" 
                             required 
-                            placeholder="Describe your main responsibilities, daily tasks, and workflows. Be specific about what takes most of your time. For example: 'I spend 3 hours daily documenting patient care, 2 hours in meetings with families, 1 hour coordinating with doctors...'"
+                            placeholder="Describe your job duties and daily tasks"
                             maxlength="2000"
                         ></textarea>
                         <div class="char-counter">
@@ -652,9 +654,9 @@
                 </div>
 
                 <div class="monetization-cta" style="display: none;">
-    <h3 id="monetization-title">You've unlocked efficiency improvements!</h3>
-    <p id="monetization-text">Imagine turning these strategies into a paid course. Your expertise combined with these AI workflows could help thousands of professionals in your field.</p>
-</div>
+                    <h3 id="monetization-title">You've unlocked efficiency improvements!</h3>
+                    <p id="monetization-text">Imagine turning these strategies into a paid course. Your expertise combined with these AI workflows could help thousands of professionals in your field.</p>
+                </div>
             </div>
         </div>
     </main>
@@ -1034,7 +1036,7 @@
                             <div class="level-card">
                                 <div class="level-header">
                                     <span style="font-size: 1.25rem;">⚡</span>
-                                    <h4>Implementation Details</h4>
+                                    <h4>AI Overview</h4>
                                     <span class="gain-badge">+${strategy.efficiencyGain || '25%'}</span>
                                 </div>
                                 <div style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.75rem;">
@@ -1043,11 +1045,11 @@
                                     <strong>Weekly Savings:</strong> ${strategy.weeklySavings}
                                 </div>
                                 <button class="quick-start-btn" onclick="toggleQuickStart(this)">
-                                    Implementation Steps ▼
+                                    Follow These AI Steps ▼
                                 </button>
                                 <div class="quick-start-content">
-                                    ${strategy.steps ? strategy.steps.map(step => `<strong>•</strong> ${step}`).join('<br>') : 'Implementation guide will be provided.'}
-                                    ${strategy.quickWin ? `<br><br><strong>Quick Win:</strong> ${strategy.quickWin}` : ''}
+                                    ${formatStepsWithPrompts(strategy.steps)}
+                                    ${strategy.quickWin ? `<div style="margin-top: 1rem; padding: 0.75rem; background: #f0f9ff; border-radius: 0.375rem; border-left: 3px solid #10b981;"><strong>Quick Win:</strong> ${strategy.quickWin}</div>` : ''}
                                 </div>
                             </div>
                         </div>
@@ -1064,16 +1066,41 @@
             }
         }
 
+        function formatStepsWithPrompts(steps) {
+            if (!steps || !Array.isArray(steps)) {
+                return 'Implementation guide will be provided.';
+            }
+            
+            return steps.map((step, i) => {
+                // Enhanced regex to catch various prompt formats
+                const promptRegex = /"([^"]+)"|'([^']+)'|Copy and paste this prompt:\s*([^.!?]+)/gi;
+                let formattedStep = step.replace(/^Step \d+:\s*/, ''); // Remove "Step X:" if present
+                
+                // Replace quoted text with highlighted prompts
+                formattedStep = formattedStep.replace(promptRegex, (match, quote1, quote2, prompt) => {
+                    const promptText = quote1 || quote2 || prompt;
+                    return `<span class="prompt-text">"${promptText}"</span>`;
+                });
+                
+                return `
+                    <div class="step-item">
+                        <span class="step-number">Step ${i + 1}:</span>
+                        <span class="step-content">${formattedStep}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
         function toggleQuickStart(button) {
             const content = button.nextElementSibling;
             const isVisible = content.style.display !== 'none';
             
             if (isVisible) {
                 content.style.display = 'none';
-                button.innerHTML = 'Implementation Steps ▼';
+                button.innerHTML = 'Follow These AI Steps ▼';
             } else {
                 content.style.display = 'block';
-                button.innerHTML = 'Implementation Steps ▲';
+                button.innerHTML = 'Follow These AI Steps ▲';
             }
         }
 
